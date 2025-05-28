@@ -1,0 +1,30 @@
+{
+  "name": "Military Spending Shock - Defense Budget Increase",
+  "description": "Simulation of a 2% GDP increase in military spending and its macroeconomic effects on social budgets, debt, and GDP growth under neutral fiscal policy",
+  "model": "military_spending_shock",
+  "parameters": {
+    "initial_gdp": 25000000000000.0,
+    "military_spending_percent": 0.03,
+    "social_spending_percent": 0.15,
+    "debt_ratio": 0.6,
+    "fiscal_policy": "neutral",
+    "baseline_gdp_growth": 0.025,
+    "periods": 15,
+    "crowding_out_rate": 0.6,
+    "debt_sustainability_threshold": 0.9
+  },
+  "simulation": {
+    "shock": {
+      "spending_increase": 0.05,
+      "duration": 8,
+      "start_period": 1,
+      "fiscal_policy": "neutral"
+    }
+  },
+  "metadata": {
+    "created_by": "Economic Research Team",
+    "scenario_type": "fiscal_policy",
+    "severity": "moderate",
+    "notes": "Models a 2% GDP increase in military spending (from 3% to 5% of GDP) under neutral fiscal policy, analyzing crowding out effects on social spending and debt sustainability"
+  }
+} 

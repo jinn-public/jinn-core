@@ -17,6 +17,8 @@ from engine import SimulationEngine
 from models.interest_rate import InterestRateModel, InterestRateShock
 from models.inflation_shock import InflationShockModel, InflationShock, simulate_inflation_shock
 from models.bank_panic import BankPanicModel, BankPanicShock, simulate_bank_panic
+from models.military_spending_shock import MilitarySpendingShockModel, MilitarySpendingShock, simulate_military_spending_shock
+from models.global_conflict import GlobalConflictModel, GlobalConflictShock, simulate_global_conflict
 
 
 class TestSimulationEngine(unittest.TestCase):
@@ -32,16 +34,22 @@ class TestSimulationEngine(unittest.TestCase):
         self.assertIn('interest_rate', self.engine.models)
         self.assertIn('inflation_shock', self.engine.models)
         self.assertIn('bank_panic', self.engine.models)
+        self.assertIn('military_spending_shock', self.engine.models)
+        self.assertIn('global_conflict', self.engine.models)
         self.assertEqual(self.engine.models['interest_rate'], InterestRateModel)
         self.assertEqual(self.engine.models['inflation_shock'], InflationShockModel)
         self.assertEqual(self.engine.models['bank_panic'], BankPanicModel)
+        self.assertEqual(self.engine.models['military_spending_shock'], MilitarySpendingShockModel)
+        self.assertEqual(self.engine.models['global_conflict'], GlobalConflictModel)
     
     def test_model_registration(self):
         """Test that models are properly registered."""
-        self.assertEqual(len(self.engine.models), 3)
+        self.assertEqual(len(self.engine.models), 5)
         self.assertIn('interest_rate', self.engine.models)
         self.assertIn('inflation_shock', self.engine.models)
         self.assertIn('bank_panic', self.engine.models)
+        self.assertIn('military_spending_shock', self.engine.models)
+        self.assertIn('global_conflict', self.engine.models)
     
     @patch('builtins.open', new_callable=mock_open, read_data='{"model": "interest_rate", "test": true}')
     def test_load_scenario(self, mock_file):
@@ -568,6 +576,303 @@ class TestBankPanicShock(unittest.TestCase):
         self.assertEqual(shock.contagion_factor, 0.2)
 
 
+class TestMilitarySpendingShockModel(unittest.TestCase):
+    """Test cases for the Military Spending Shock Model."""
+    
+    def setUp(self):
+        """Set up test fixtures."""
+        self.model = MilitarySpendingShockModel({})
+    
+    def test_model_initialization(self):
+        """Test model initialization with default parameters."""
+        self.assertIsInstance(self.model, MilitarySpendingShockModel)
+        self.assertIn('initial_gdp', self.model.parameters)
+        self.assertIn('military_spending_percent', self.model.parameters)
+        self.assertIn('debt_ratio', self.model.parameters)
+        self.assertEqual(self.model.parameters['periods'], 20)
+    
+    def test_simulate_no_shock(self):
+        """Test simulation with no military spending shock."""
+        simulation_config = {
+            'shock': {
+                'spending_increase': 0.0,
+                'duration': 0,
+                'start_period': 0
+            }
+        }
+        
+        results = self.model.simulate(simulation_config)
+        
+        self.assertIsInstance(results, dict)
+        self.assertIn('periods', results)
+        self.assertIn('military_spending_percent', results)
+        self.assertIn('social_spending_percent', results)
+        self.assertIn('gdp_growth', results)
+        self.assertIn('debt_ratio', results)
+        self.assertIn('summary', results)
+    
+    def test_simulate_with_shock(self):
+        """Test simulation with military spending shock."""
+        simulation_config = {
+            'shock': {
+                'spending_increase': 0.02,  # 2% of GDP increase
+                'duration': 5,
+                'start_period': 1,
+                'fiscal_policy': 'neutral'
+            }
+        }
+        
+        results = self.model.simulate(simulation_config)
+        
+        self.assertIsInstance(results, dict)
+        self.assertIn('summary', results)
+        
+        # Check that shock affects the system
+        summary = results['summary']
+        self.assertIn('peak_military_spending', summary)
+        self.assertIn('social_spending_reduction', summary)
+        self.assertIn('fiscal_policy_effectiveness', summary)
+
+
+class TestSimpleMilitarySpendingFunction(unittest.TestCase):
+    """Test cases for the simple military spending shock function."""
+    
+    def test_simple_function_basic(self):
+        """Test the simple military spending shock function with basic inputs."""
+        result = simulate_military_spending_shock(
+            initial_gdp=25_000_000_000_000,  # $25T
+            military_spending_percent=0.03,   # 3%
+            military_spending_increase=0.02,  # +2%
+            debt_ratio=0.6,                   # 60%
+            fiscal_policy="neutral"
+        )
+        
+        self.assertIsInstance(result, dict)
+        self.assertIn('new_military_spending_percent', result)
+        self.assertIn('military_spending_amount', result)
+        self.assertIn('social_budget_impact', result)
+        self.assertIn('new_debt_ratio', result)
+        self.assertIn('gdp_growth_impact', result)
+        self.assertIn('fiscal_multiplier', result)
+        
+        # Check calculations
+        self.assertEqual(result['new_military_spending_percent'], 5.0)  # 3% + 2%
+        self.assertEqual(result['social_budget_impact'], -1.2)  # -2% * 0.6
+        self.assertEqual(result['fiscal_multiplier'], 0.8)  # Neutral policy
+    
+    def test_fiscal_policy_effects(self):
+        """Test different fiscal policy effects."""
+        base_params = {
+            'initial_gdp': 25_000_000_000_000,
+            'military_spending_percent': 0.03,
+            'military_spending_increase': 0.02,
+            'debt_ratio': 0.6
+        }
+        
+        # Test stimulus policy
+        stimulus_result = simulate_military_spending_shock(**base_params, fiscal_policy="stimulus")
+        self.assertEqual(stimulus_result['fiscal_multiplier'], 1.2)
+        self.assertGreater(stimulus_result['gdp_growth_impact'], 2.0)  # Higher growth impact
+        
+        # Test austerity policy
+        austerity_result = simulate_military_spending_shock(**base_params, fiscal_policy="austerity")
+        self.assertEqual(austerity_result['fiscal_multiplier'], 0.5)
+        self.assertLess(austerity_result['new_debt_ratio'], stimulus_result['new_debt_ratio'])  # Lower debt
+
+
+class TestMilitarySpendingShock(unittest.TestCase):
+    """Test cases for MilitarySpendingShock dataclass."""
+    
+    def test_shock_creation(self):
+        """Test creating a military spending shock."""
+        shock = MilitarySpendingShock(spending_increase=0.02, duration=8)
+        
+        self.assertEqual(shock.spending_increase, 0.02)
+        self.assertEqual(shock.duration, 8)
+        self.assertEqual(shock.start_period, 0)  # Default value
+        self.assertEqual(shock.fiscal_policy, "neutral")  # Default value
+    
+    def test_shock_creation_with_custom_values(self):
+        """Test creating a military spending shock with custom values."""
+        shock = MilitarySpendingShock(
+            spending_increase=0.015, 
+            duration=6, 
+            start_period=2,
+            fiscal_policy="stimulus"
+        )
+        
+        self.assertEqual(shock.spending_increase, 0.015)
+        self.assertEqual(shock.duration, 6)
+        self.assertEqual(shock.start_period, 2)
+        self.assertEqual(shock.fiscal_policy, "stimulus")
+
+
+class TestGlobalConflictModel(unittest.TestCase):
+    """Test cases for the Global Conflict Model."""
+    
+    def setUp(self):
+        """Set up test fixtures."""
+        self.model = GlobalConflictModel({})
+    
+    def test_model_initialization(self):
+        """Test model initialization with default parameters."""
+        self.assertIsInstance(self.model, GlobalConflictModel)
+        self.assertIn('initial_gdp', self.model.parameters)
+        self.assertIn('baseline_gdp_growth', self.model.parameters)
+        self.assertIn('baseline_military_spending', self.model.parameters)
+        self.assertEqual(self.model.parameters['periods'], 20)
+    
+    def test_simulate_no_conflict(self):
+        """Test simulation with no global conflict."""
+        simulation_config = {
+            'conflict': {
+                'military_spending_jump': 0.0,
+                'global_trade_disruption': 0.0,
+                'conflict_duration_years': 0,
+                'inflation_surge_rate': 0.0,
+                'human_capital_loss': 0.0,
+                'infrastructure_destruction': 0.0,
+                'start_period': 0
+            }
+        }
+        
+        results = self.model.simulate(simulation_config)
+        
+        self.assertIsInstance(results, dict)
+        self.assertIn('periods', results)
+        self.assertIn('conflict_active', results)
+        self.assertIn('military_spending_percent', results)
+        self.assertIn('gdp', results)
+        self.assertIn('trade_volume', results)
+        self.assertIn('social_stability_index', results)
+        self.assertIn('summary', results)
+    
+    def test_simulate_with_conflict(self):
+        """Test simulation with global conflict."""
+        simulation_config = {
+            'conflict': {
+                'military_spending_jump': 0.05,  # 5% GDP increase
+                'global_trade_disruption': 0.4,  # 40% trade disruption
+                'conflict_duration_years': 3,
+                'inflation_surge_rate': 0.1,     # 10% inflation spike
+                'human_capital_loss': 0.05,      # 5% workforce loss
+                'infrastructure_destruction': 0.1, # 10% infrastructure loss
+                'start_period': 1
+            }
+        }
+        
+        results = self.model.simulate(simulation_config)
+        
+        self.assertIsInstance(results, dict)
+        self.assertIn('summary', results)
+        
+        # Check that conflict affects the system
+        summary = results['summary']
+        self.assertIn('conflict_severity', summary)
+        self.assertIn('total_gdp_loss', summary)
+        self.assertIn('peak_inflation', summary)
+
+
+class TestSimpleGlobalConflictFunction(unittest.TestCase):
+    """Test cases for the simple global conflict function."""
+    
+    def test_simple_function_basic(self):
+        """Test the simple global conflict function with basic inputs."""
+        result = simulate_global_conflict(
+            initial_gdp=100_000_000_000_000,  # $100T
+            military_spending_jump=0.05,      # 5% GDP
+            global_trade_disruption=0.4,      # 40% trade disruption
+            conflict_duration_years=5,
+            inflation_surge_rate=0.1,         # 10% inflation
+            human_capital_loss=0.05,          # 5% workforce loss
+            infrastructure_destruction=0.1    # 10% infrastructure loss
+        )
+        
+        self.assertIsInstance(result, dict)
+        self.assertIn('total_military_spending', result)
+        self.assertIn('gdp_impact', result)
+        self.assertIn('trade_loss', result)
+        self.assertIn('inflation_peak', result)
+        self.assertIn('workforce_reduction', result)
+        self.assertIn('infrastructure_loss', result)
+        self.assertIn('debt_increase', result)
+        self.assertIn('social_stability_index', result)
+        
+        # Check that impacts are negative (economic damage)
+        self.assertLess(result['gdp_impact'], 0)
+        self.assertGreater(result['total_military_spending'], 0)
+        self.assertGreater(result['trade_loss'], 0)
+    
+    def test_conflict_severity_scaling(self):
+        """Test that longer/more intense conflicts have worse impacts."""
+        # Short, limited conflict
+        result_limited = simulate_global_conflict(
+            initial_gdp=100_000_000_000_000,
+            military_spending_jump=0.02,
+            global_trade_disruption=0.1,
+            conflict_duration_years=2,
+            inflation_surge_rate=0.03,
+            human_capital_loss=0.02,
+            infrastructure_destruction=0.03
+        )
+        
+        # Long, intense conflict
+        result_intense = simulate_global_conflict(
+            initial_gdp=100_000_000_000_000,
+            military_spending_jump=0.08,
+            global_trade_disruption=0.6,
+            conflict_duration_years=6,
+            inflation_surge_rate=0.15,
+            human_capital_loss=0.08,
+            infrastructure_destruction=0.15
+        )
+        
+        # Intense conflict should have worse impacts
+        self.assertLess(result_intense['gdp_impact'], result_limited['gdp_impact'])
+        self.assertGreater(result_intense['debt_increase'], result_limited['debt_increase'])
+        self.assertLess(result_intense['social_stability_index'], result_limited['social_stability_index'])
+
+
+class TestGlobalConflictShock(unittest.TestCase):
+    """Test cases for GlobalConflictShock dataclass."""
+    
+    def test_shock_creation(self):
+        """Test creating a global conflict shock."""
+        shock = GlobalConflictShock(
+            military_spending_jump=0.05,
+            global_trade_disruption=0.4,
+            conflict_duration_years=5,
+            inflation_surge_rate=0.1,
+            human_capital_loss=0.05,
+            infrastructure_destruction=0.1
+        )
+        
+        self.assertEqual(shock.military_spending_jump, 0.05)
+        self.assertEqual(shock.global_trade_disruption, 0.4)
+        self.assertEqual(shock.conflict_duration_years, 5)
+        self.assertEqual(shock.inflation_surge_rate, 0.1)
+        self.assertEqual(shock.human_capital_loss, 0.05)
+        self.assertEqual(shock.infrastructure_destruction, 0.1)
+        self.assertEqual(shock.start_period, 0)  # Default value
+    
+    def test_shock_creation_with_start_period(self):
+        """Test creating a shock with custom start period."""
+        shock = GlobalConflictShock(
+            military_spending_jump=0.03,
+            global_trade_disruption=0.25,
+            conflict_duration_years=3,
+            inflation_surge_rate=0.06,
+            human_capital_loss=0.03,
+            infrastructure_destruction=0.06,
+            start_period=2
+        )
+        
+        self.assertEqual(shock.military_spending_jump, 0.03)
+        self.assertEqual(shock.global_trade_disruption, 0.25)
+        self.assertEqual(shock.conflict_duration_years, 3)
+        self.assertEqual(shock.start_period, 2)
+
+
 class TestIntegration(unittest.TestCase):
     """Integration tests for the complete simulation flow."""
     
@@ -613,6 +918,39 @@ class TestIntegration(unittest.TestCase):
                     'withdrawal_rate': 12.0,
                     'panic_duration': 4,
                     'start_period': 2
+                }
+            }
+        }
+        self.military_spending_scenario = {
+            'model': 'military_spending_shock',
+            'parameters': {
+                'periods': 12,
+                'initial_gdp': 20_000_000_000_000
+            },
+            'simulation': {
+                'shock': {
+                    'spending_increase': 0.015,
+                    'duration': 6,
+                    'start_period': 1,
+                    'fiscal_policy': 'neutral'
+                }
+            }
+        }
+        self.global_conflict_scenario = {
+            'model': 'global_conflict',
+            'parameters': {
+                'periods': 10,
+                'initial_gdp': 80_000_000_000_000
+            },
+            'simulation': {
+                'conflict': {
+                    'military_spending_jump': 0.04,
+                    'global_trade_disruption': 0.3,
+                    'conflict_duration_years': 3,
+                    'inflation_surge_rate': 0.08,
+                    'human_capital_loss': 0.04,
+                    'infrastructure_destruction': 0.08,
+                    'start_period': 1
                 }
             }
         }
@@ -672,6 +1010,48 @@ class TestIntegration(unittest.TestCase):
         # Verify content
         self.assertEqual(results['model'], 'bank_panic')
         self.assertEqual(len(results['results']['periods']), 15)
+        
+        # Verify timing information
+        metadata = results['metadata']
+        self.assertIn('start_time', metadata)
+        self.assertIn('end_time', metadata)
+        self.assertIn('execution_time_seconds', metadata)
+        self.assertGreaterEqual(metadata['execution_time_seconds'], 0)
+    
+    def test_full_simulation_flow_military_spending(self):
+        """Test the complete simulation flow for military spending model."""
+        results = self.engine.run_simulation(self.military_spending_scenario)
+        
+        # Verify structure
+        self.assertIn('model', results)
+        self.assertIn('scenario', results)
+        self.assertIn('results', results)
+        self.assertIn('metadata', results)
+        
+        # Verify content
+        self.assertEqual(results['model'], 'military_spending_shock')
+        self.assertEqual(len(results['results']['periods']), 12)
+        
+        # Verify timing information
+        metadata = results['metadata']
+        self.assertIn('start_time', metadata)
+        self.assertIn('end_time', metadata)
+        self.assertIn('execution_time_seconds', metadata)
+        self.assertGreaterEqual(metadata['execution_time_seconds'], 0)
+    
+    def test_full_simulation_flow_global_conflict(self):
+        """Test the complete simulation flow for global conflict model."""
+        results = self.engine.run_simulation(self.global_conflict_scenario)
+        
+        # Verify structure
+        self.assertIn('model', results)
+        self.assertIn('scenario', results)
+        self.assertIn('results', results)
+        self.assertIn('metadata', results)
+        
+        # Verify content
+        self.assertEqual(results['model'], 'global_conflict')
+        self.assertEqual(len(results['results']['periods']), 10)
         
         # Verify timing information
         metadata = results['metadata']

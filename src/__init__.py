@@ -13,7 +13,13 @@ from .models import (
     simulate_inflation_shock,
     BankPanicModel,
     BankPanicShock,
-    simulate_bank_panic
+    simulate_bank_panic,
+    MilitarySpendingShockModel,
+    MilitarySpendingShock,
+    simulate_military_spending_shock,
+    GlobalConflictModel,
+    GlobalConflictShock,
+    simulate_global_conflict
 )
 
 __version__ = "0.1.0"
@@ -29,5 +35,11 @@ __all__ = [
     "simulate_inflation_shock",
     "BankPanicModel",
     "BankPanicShock",
-    "simulate_bank_panic"
+    "simulate_bank_panic",
+    "MilitarySpendingShockModel",
+    "MilitarySpendingShock",
+    "simulate_military_spending_shock",
+    "GlobalConflictModel",
+    "GlobalConflictShock",
+    "simulate_global_conflict"
 ] 
