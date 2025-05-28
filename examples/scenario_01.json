@@ -1,0 +1,35 @@
+{
+  "model": "interest_rate",
+  "name": "Federal Reserve Rate Hike Scenario",
+  "description": "Simulation of a 75 basis point rate increase by the Federal Reserve",
+  "parameters": {
+    "gdp_sensitivity": -0.35,
+    "inflation_sensitivity": -0.25,
+    "investment_sensitivity": -1.0,
+    "consumption_sensitivity": -0.2,
+    "baseline_gdp_growth": 0.015,
+    "baseline_inflation": 0.006,
+    "baseline_investment": 1200.0,
+    "baseline_consumption": 6000.0,
+    "periods": 24,
+    "persistence": 0.85
+  },
+  "simulation": {
+    "shock": {
+      "magnitude": 0.0075,
+      "duration": 8,
+      "start_period": 2
+    }
+  },
+  "metadata": {
+    "created_by": "Economic Research Team",
+    "created_date": "2024-01-15",
+    "version": "1.0",
+    "assumptions": [
+      "Federal Reserve raises rates by 75 basis points",
+      "Shock persists for 8 quarters with decay",
+      "Standard macroeconomic transmission channels apply",
+      "No external shocks or policy interventions"
+    ]
+  }
+} 
