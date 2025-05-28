@@ -1,0 +1,36 @@
+{
+  "model": "inflation_shock",
+  "name": "Supply Chain Inflation Spike Scenario",
+  "description": "Simulation of a 5 percentage point inflation spike due to supply chain disruptions",
+  "parameters": {
+    "gdp_contraction_rate": -0.04,
+    "investment_sensitivity": -2.0,
+    "consumption_impact": -0.04,
+    "max_investment_drop": 0.20,
+    "baseline_inflation": 0.025,
+    "baseline_gdp": 25000000000000.0,
+    "baseline_investment": 5000000000000.0,
+    "baseline_consumption": 15000000000000.0,
+    "periods": 16,
+    "shock_persistence": 0.85
+  },
+  "simulation": {
+    "shock": {
+      "spike_magnitude": 5.0,
+      "duration": 6,
+      "start_period": 1
+    }
+  },
+  "metadata": {
+    "created_by": "Economic Research Team",
+    "created_date": "2024-01-15",
+    "version": "1.0",
+    "assumptions": [
+      "Supply chain disruptions cause 5pp inflation spike",
+      "Shock persists for 6 quarters with gradual decay",
+      "GDP contracts by 4% during high inflation periods",
+      "Investment drops 2% per 1% inflation increase",
+      "Consumption falls by fixed 4%"
+    ]
+  }
+} 
