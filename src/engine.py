@@ -14,11 +14,15 @@ try:
     from .models.interest_rate import InterestRateModel
     from .models.inflation_shock import InflationShockModel
     from .models.bank_panic import BankPanicModel
+    from .models.military_spending_shock import MilitarySpendingShockModel
+    from .models.global_conflict import GlobalConflictModel
 except ImportError:
     # Fall back to absolute imports (when used from tests)
     from models.interest_rate import InterestRateModel
     from models.inflation_shock import InflationShockModel
     from models.bank_panic import BankPanicModel
+    from models.military_spending_shock import MilitarySpendingShockModel
+    from models.global_conflict import GlobalConflictModel
 
 logger = logging.getLogger(__name__)
 
@@ -38,6 +42,8 @@ class SimulationEngine:
         self.models['interest_rate'] = InterestRateModel
         self.models['inflation_shock'] = InflationShockModel
         self.models['bank_panic'] = BankPanicModel
+        self.models['military_spending_shock'] = MilitarySpendingShockModel
+        self.models['global_conflict'] = GlobalConflictModel
         logger.info(f"Registered {len(self.models)} economic models")
     
     def load_scenario(self, scenario_path: str) -> Dict[str, Any]:

@@ -1,0 +1,36 @@
+{
+  "name": "Global Conflict - Large-Scale War Economic Impact",
+  "description": "Simulation of a 5-year global conflict with comprehensive economic impacts including military spending escalation, trade disruption, human capital loss, infrastructure destruction, inflation surge, and social stability deterioration",
+  "model": "global_conflict",
+  "parameters": {
+    "initial_gdp": 100000000000000.0,
+    "baseline_gdp_growth": 0.03,
+    "baseline_inflation": 0.02,
+    "baseline_military_spending": 0.02,
+    "baseline_trade_ratio": 0.3,
+    "baseline_debt_ratio": 0.7,
+    "periods": 15,
+    "trade_gdp_multiplier": 0.5,
+    "human_capital_gdp_multiplier": 1.2,
+    "infrastructure_gdp_multiplier": 0.8,
+    "military_gdp_drag": 0.3,
+    "conflict_escalation_rate": 1.05
+  },
+  "simulation": {
+    "conflict": {
+      "military_spending_jump": 0.05,
+      "global_trade_disruption": 0.4,
+      "conflict_duration_years": 5,
+      "inflation_surge_rate": 0.1,
+      "human_capital_loss": 0.05,
+      "infrastructure_destruction": 0.1,
+      "start_period": 0
+    }
+  },
+  "metadata": {
+    "created_by": "Economic Research Team",
+    "scenario_type": "global_conflict",
+    "severity": "catastrophic",
+    "notes": "Models a large-scale global conflict with 5% GDP military spending increase, 40% trade disruption, 10% inflation surge, 5% annual workforce loss, and 10% annual infrastructure destruction over 5 years. Includes post-conflict recovery dynamics."
+  }
+} 
