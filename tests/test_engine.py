@@ -16,6 +16,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 from engine import SimulationEngine
 from models.interest_rate import InterestRateModel, InterestRateShock
 from models.inflation_shock import InflationShockModel, InflationShock, simulate_inflation_shock
+from models.bank_panic import BankPanicModel, BankPanicShock, simulate_bank_panic
 
 
 class TestSimulationEngine(unittest.TestCase):
@@ -30,14 +31,17 @@ class TestSimulationEngine(unittest.TestCase):
         self.assertIsInstance(self.engine, SimulationEngine)
         self.assertIn('interest_rate', self.engine.models)
         self.assertIn('inflation_shock', self.engine.models)
+        self.assertIn('bank_panic', self.engine.models)
         self.assertEqual(self.engine.models['interest_rate'], InterestRateModel)
         self.assertEqual(self.engine.models['inflation_shock'], InflationShockModel)
+        self.assertEqual(self.engine.models['bank_panic'], BankPanicModel)
     
     def test_model_registration(self):
         """Test that models are properly registered."""
-        self.assertEqual(len(self.engine.models), 2)
+        self.assertEqual(len(self.engine.models), 3)
         self.assertIn('interest_rate', self.engine.models)
         self.assertIn('inflation_shock', self.engine.models)
+        self.assertIn('bank_panic', self.engine.models)
     
     @patch('builtins.open', new_callable=mock_open, read_data='{"model": "interest_rate", "test": true}')
     def test_load_scenario(self, mock_file):
@@ -447,6 +451,123 @@ class TestInflationShock(unittest.TestCase):
         self.assertEqual(shock.start_period, 2)
 
 
+class TestBankPanicModel(unittest.TestCase):
+    """Test cases for the Bank Panic Model."""
+    
+    def setUp(self):
+        """Set up test fixtures."""
+        self.model = BankPanicModel({})
+    
+    def test_model_initialization(self):
+        """Test model initialization with default parameters."""
+        self.assertIsInstance(self.model, BankPanicModel)
+        self.assertIn('total_deposits', self.model.parameters)
+        self.assertIn('liquid_reserves', self.model.parameters)
+        self.assertEqual(self.model.parameters['periods'], 30)
+    
+    def test_simulate_no_panic(self):
+        """Test simulation with no bank panic."""
+        simulation_config = {
+            'panic': {
+                'withdrawal_rate': 0.0,
+                'panic_duration': 0,
+                'start_period': 0
+            }
+        }
+        
+        results = self.model.simulate(simulation_config)
+        
+        self.assertIsInstance(results, dict)
+        self.assertIn('periods', results)
+        self.assertIn('withdrawal_rate', results)
+        self.assertIn('liquidity_ratio', results)
+        self.assertIn('summary', results)
+    
+    def test_simulate_with_panic(self):
+        """Test simulation with bank panic."""
+        simulation_config = {
+            'panic': {
+                'withdrawal_rate': 15.0,
+                'panic_duration': 5,
+                'start_period': 1
+            }
+        }
+        
+        results = self.model.simulate(simulation_config)
+        
+        self.assertIsInstance(results, dict)
+        self.assertIn('summary', results)
+        
+        # Check that panic affects the system
+        summary = results['summary']
+        self.assertIn('crisis_severity', summary)
+        self.assertIn('max_banks_failed', summary)
+
+
+class TestSimpleBankPanicFunction(unittest.TestCase):
+    """Test cases for the simple bank panic function."""
+    
+    def test_simple_function_basic(self):
+        """Test the simple bank panic function with basic inputs."""
+        result = simulate_bank_panic(
+            total_deposits=100_000_000_000,  # $100B
+            liquid_reserves=15_000_000_000,  # $15B
+            withdrawal_rate=10.0,            # 10%
+            central_bank_support=0.0
+        )
+        
+        self.assertIsInstance(result, dict)
+        self.assertIn('daily_withdrawals', result)
+        self.assertIn('remaining_liquidity', result)
+        self.assertIn('survival_days', result)
+        self.assertIn('bank_survives', result)
+        self.assertIn('liquidity_ratio', result)
+        
+        # Check calculations
+        expected_withdrawals = 100_000_000_000 * 0.1  # 10% of deposits
+        self.assertAlmostEqual(result['daily_withdrawals'], expected_withdrawals)
+    
+    def test_bank_survival_with_cb_support(self):
+        """Test bank survival with central bank support."""
+        result = simulate_bank_panic(
+            total_deposits=100_000_000_000,
+            liquid_reserves=10_000_000_000,
+            withdrawal_rate=8.0,  # Reduced from 15% to 8% for survival
+            central_bank_support=50_000_000_000  # $50B CB support
+        )
+        
+        # With CB support, bank should survive longer
+        self.assertGreater(result['survival_days'], 6)  # Should be 7+ days
+        self.assertTrue(result['bank_survives'])
+
+
+class TestBankPanicShock(unittest.TestCase):
+    """Test cases for BankPanicShock dataclass."""
+    
+    def test_shock_creation(self):
+        """Test creating a bank panic shock."""
+        shock = BankPanicShock(withdrawal_rate=20.0, panic_duration=7)
+        
+        self.assertEqual(shock.withdrawal_rate, 20.0)
+        self.assertEqual(shock.panic_duration, 7)
+        self.assertEqual(shock.start_period, 0)  # Default value
+        self.assertEqual(shock.contagion_factor, 0.1)  # Default value
+    
+    def test_shock_creation_with_custom_values(self):
+        """Test creating a bank panic shock with custom values."""
+        shock = BankPanicShock(
+            withdrawal_rate=25.0, 
+            panic_duration=5, 
+            start_period=3,
+            contagion_factor=0.2
+        )
+        
+        self.assertEqual(shock.withdrawal_rate, 25.0)
+        self.assertEqual(shock.panic_duration, 5)
+        self.assertEqual(shock.start_period, 3)
+        self.assertEqual(shock.contagion_factor, 0.2)
+
+
 class TestIntegration(unittest.TestCase):
     """Integration tests for the complete simulation flow."""
     
@@ -478,6 +599,20 @@ class TestIntegration(unittest.TestCase):
                     'spike_magnitude': 3.0,
                     'duration': 3,
                     'start_period': 1
+                }
+            }
+        }
+        self.bank_panic_scenario = {
+            'model': 'bank_panic',
+            'parameters': {
+                'periods': 15,
+                'total_deposits': 50_000_000_000
+            },
+            'simulation': {
+                'panic': {
+                    'withdrawal_rate': 12.0,
+                    'panic_duration': 4,
+                    'start_period': 2
                 }
             }
         }
@@ -524,6 +659,27 @@ class TestIntegration(unittest.TestCase):
         self.assertIn('execution_time_seconds', metadata)
         self.assertGreaterEqual(metadata['execution_time_seconds'], 0)
     
+    def test_full_simulation_flow_bank_panic(self):
+        """Test the complete simulation flow for bank panic model."""
+        results = self.engine.run_simulation(self.bank_panic_scenario)
+        
+        # Verify structure
+        self.assertIn('model', results)
+        self.assertIn('scenario', results)
+        self.assertIn('results', results)
+        self.assertIn('metadata', results)
+        
+        # Verify content
+        self.assertEqual(results['model'], 'bank_panic')
+        self.assertEqual(len(results['results']['periods']), 15)
+        
+        # Verify timing information
+        metadata = results['metadata']
+        self.assertIn('start_time', metadata)
+        self.assertIn('end_time', metadata)
+        self.assertIn('execution_time_seconds', metadata)
+        self.assertGreaterEqual(metadata['execution_time_seconds'], 0)
+    
     @patch('builtins.open', new_callable=mock_open)
     def test_run_scenario_file_integration(self, mock_file):
         """Test running a scenario from file."""
@@ -543,4 +699,4 @@ if __name__ == '__main__':
     logging.getLogger().setLevel(logging.WARNING)
     
     # Run the tests
-    unittest.main(verbosity=2) 
+    unittest.main() 
