@@ -9,8 +9,16 @@ import logging
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 
-from models.interest_rate import InterestRateModel
-from models.inflation_shock import InflationShockModel
+try:
+    # Try relative imports first (when used as a module)
+    from .models.interest_rate import InterestRateModel
+    from .models.inflation_shock import InflationShockModel
+    from .models.bank_panic import BankPanicModel
+except ImportError:
+    # Fall back to absolute imports (when used from tests)
+    from models.interest_rate import InterestRateModel
+    from models.inflation_shock import InflationShockModel
+    from models.bank_panic import BankPanicModel
 
 logger = logging.getLogger(__name__)
 
@@ -29,6 +37,7 @@ class SimulationEngine:
         """Register available economic models."""
         self.models['interest_rate'] = InterestRateModel
         self.models['inflation_shock'] = InflationShockModel
+        self.models['bank_panic'] = BankPanicModel
         logger.info(f"Registered {len(self.models)} economic models")
     
     def load_scenario(self, scenario_path: str) -> Dict[str, Any]:

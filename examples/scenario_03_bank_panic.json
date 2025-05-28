@@ -1,0 +1,32 @@
+{
+  "name": "Bank Panic Scenario - Regional Banking Crisis",
+  "description": "Simulation of a severe banking panic triggered by rumors of bank insolvency, with 20% daily withdrawal rates and potential central bank intervention",
+  "model": "bank_panic",
+  "parameters": {
+    "total_deposits": 100000000000.0,
+    "liquid_reserves": 15000000000.0,
+    "loan_portfolio": 80000000000.0,
+    "capital_buffer": 8000000000.0,
+    "base_withdrawal_rate": 0.02,
+    "panic_multiplier": 10.0,
+    "cb_intervention_threshold": 0.15,
+    "cb_max_support": 50000000000.0,
+    "cb_response_delay": 2,
+    "periods": 21,
+    "num_banks": 8
+  },
+  "simulation": {
+    "panic": {
+      "withdrawal_rate": 20.0,
+      "panic_duration": 5,
+      "start_period": 3,
+      "contagion_factor": 0.15
+    }
+  },
+  "metadata": {
+    "created_by": "Economic Research Team",
+    "scenario_type": "banking_crisis",
+    "severity": "high",
+    "notes": "Models a severe regional banking crisis with 20% daily withdrawal rates, testing bank resilience and central bank response effectiveness"
+  }
+} 

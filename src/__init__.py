@@ -10,7 +10,10 @@ from .models import (
     InterestRateShock,
     InflationShockModel,
     InflationShock,
-    simulate_inflation_shock
+    simulate_inflation_shock,
+    BankPanicModel,
+    BankPanicShock,
+    simulate_bank_panic
 )
 
 __version__ = "0.1.0"
@@ -23,5 +26,8 @@ __all__ = [
     "InterestRateShock",
     "InflationShockModel",
     "InflationShock",
-    "simulate_inflation_shock"
+    "simulate_inflation_shock",
+    "BankPanicModel",
+    "BankPanicShock",
+    "simulate_bank_panic"
 ] 
