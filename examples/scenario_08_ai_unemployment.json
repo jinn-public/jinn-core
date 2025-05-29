@@ -1,0 +1,54 @@
+{
+  "model": "ai_unemployment_shock",
+  "name": "AI-Driven Unemployment Crisis with UBI Policy Response",
+  "description": "Simulation of economic effects from rapidly rising AI-driven unemployment over 30 years, including UBI implementation at 12% unemployment threshold",
+  "parameters": {
+    "initial_employment_rate": 94.0,
+    "initial_gdp": 25000000000000.0,
+    "baseline_productivity_growth": 2.0,
+    "ai_displacement_rate": 1.0,
+    "max_unemployment_rate": 30.0,
+    "ai_productivity_boost_min": 2.0,
+    "ai_productivity_boost_max": 6.0,
+    "ubi_threshold": 12.0,
+    "ubi_amount_per_person": 15000.0,
+    "ubi_coverage_min": 0.5,
+    "ubi_coverage_max": 1.0,
+    "gdp_employment_elasticity": 0.6,
+    "government_spending_limit": 0.30,
+    "tax_adjustment_sensitivity": 1.5,
+    "periods": 30,
+    "population": 330000000
+  },
+  "simulation": {
+    "shock": {
+      "ai_displacement_rate": 1.0,
+      "max_unemployment": 30.0,
+      "start_year": 0
+    },
+    "compare_scenarios": true,
+    "ubi_enabled": true
+  },
+  "metadata": {
+    "created_by": "Economic AI Research Team",
+    "created_date": "2024-01-15",
+    "version": "1.0",
+    "assumptions": [
+      "AI displacement increases unemployment by 1% per year up to 30% total",
+      "AI boosts productivity from 2% to 6% as displacement increases",
+      "UBI activated when unemployment reaches 12%",
+      "UBI provides $15,000 per person annually with 50-100% coverage",
+      "GDP sensitivity to employment changes has 0.6 elasticity",
+      "Government spending capped at 30% of GDP",
+      "Progressive tax adjustment strategy scales with unemployment"
+    ],
+    "outputs": [
+      "GDP over 30 years with productivity vs employment trade-offs",
+      "Unemployment rate progression",
+      "UBI trigger points and associated costs",
+      "Government budget balance and fiscal sustainability",
+      "Comparison between UBI and no-UBI scenarios",
+      "Tax rate adjustments needed for fiscal balance"
+    ]
+  }
+} 
