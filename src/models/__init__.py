@@ -21,6 +21,7 @@ from .cosmic_consciousness_timing import (
     get_kardashev_survival_bonus,
     get_kardashev_level_name
 )
+from .ai_unemployment_shock import AIUnemploymentShockModel, AIUnemploymentShock, simulate_ai_unemployment_shock
 
 __all__ = [
     'InterestRateModel', 
@@ -50,5 +51,8 @@ __all__ = [
     'estimate_kardashev_progress',
     'get_kardashev_expansion_multiplier',
     'get_kardashev_survival_bonus',
-    'get_kardashev_level_name'
+    'get_kardashev_level_name',
+    'AIUnemploymentShockModel',
+    'AIUnemploymentShock',
+    'simulate_ai_unemployment_shock'
 ] 
