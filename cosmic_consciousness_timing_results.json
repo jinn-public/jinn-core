@@ -1,0 +1,141 @@
+{
+  "simulation_type": "cosmic_consciousness_timing",
+  "timestamp": "2025-05-29T06:09:41",
+  "simple_function_results": [
+    {
+      "consciousness_emergence_time": 4.0,
+      "expansion_window": 0.5,
+      "minimum_time_needed": 0.25,
+      "civilization_succeeds": true,
+      "safety_margin": 0.3,
+      "safety_margin_ratio": 0.6,
+      "expansion_probability": 0.95,
+      "window_needed": 0.2,
+      "risk_tolerance": 0.1
+    },
+    {
+      "consciousness_emergence_time": 4.4,
+      "expansion_window": 0.5,
+      "minimum_time_needed": 0.25,
+      "civilization_succeeds": true,
+      "safety_margin": 0.3,
+      "safety_margin_ratio": 0.6,
+      "expansion_probability": 0.95,
+      "window_needed": 0.2,
+      "risk_tolerance": 0.1
+    },
+    {
+      "consciousness_emergence_time": 4.0,
+      "expansion_window": 0.5,
+      "minimum_time_needed": 0.4,
+      "civilization_succeeds": true,
+      "safety_margin": 0.2,
+      "safety_margin_ratio": 0.4,
+      "expansion_probability": 0.2375,
+      "window_needed": 0.3,
+      "risk_tolerance": 0.2
+    }
+  ],
+  "full_model_deterministic": [
+    {
+      "consciousness_emergence_time": 4.0,
+      "expansion_window": 0.5,
+      "minimum_time_needed": 0.25,
+      "civilization_succeeds": true,
+      "safety_margin": 0.3,
+      "safety_margin_ratio": 0.6,
+      "expansion_probability": 0.95,
+      "window_needed": 0.2,
+      "risk_tolerance": 0.1,
+      "scenario_name": "+0% evolution delay",
+      "evolution_delay_factor": 0.0,
+      "evolution_duration": 4.0
+    },
+    {
+      "consciousness_emergence_time": 4.2,
+      "expansion_window": 0.5,
+      "minimum_time_needed": 0.25,
+      "civilization_succeeds": true,
+      "safety_margin": 0.3,
+      "safety_margin_ratio": 0.6,
+      "expansion_probability": 0.95,
+      "window_needed": 0.2,
+      "risk_tolerance": 0.1,
+      "scenario_name": "+5% evolution delay",
+      "evolution_delay_factor": 0.05,
+      "evolution_duration": 4.2
+    },
+    {
+      "consciousness_emergence_time": 4.4,
+      "expansion_window": 0.5,
+      "minimum_time_needed": 0.25,
+      "civilization_succeeds": true,
+      "safety_margin": 0.3,
+      "safety_margin_ratio": 0.6,
+      "expansion_probability": 0.95,
+      "window_needed": 0.2,
+      "risk_tolerance": 0.1,
+      "scenario_name": "+10% evolution delay",
+      "evolution_delay_factor": 0.1,
+      "evolution_duration": 4.4
+    },
+    {
+      "consciousness_emergence_time": 4.8,
+      "expansion_window": 0.5,
+      "minimum_time_needed": 0.25,
+      "civilization_succeeds": true,
+      "safety_margin": 0.3,
+      "safety_margin_ratio": 0.6,
+      "expansion_probability": 0.95,
+      "window_needed": 0.2,
+      "risk_tolerance": 0.1,
+      "scenario_name": "+20% evolution delay",
+      "evolution_delay_factor": 0.2,
+      "evolution_duration": 4.8
+    }
+  ],
+  "full_model_summary": {
+    "deterministic_success_rate": 1.0,
+    "deterministic_scenarios_passing": 4,
+    "total_deterministic_scenarios": 4,
+    "baseline_expansion_window": 0.5,
+    "baseline_success": true,
+    "critical_evolution_delay": null,
+    "window_fragility": "LOW"
+  },
+  "probabilistic_analysis": {
+    "success_rate": 1.0,
+    "confidence_intervals": {
+      "p25": {
+        "success_rate": 1.0,
+        "expansion_probability": 0.793622959219238,
+        "safety_margin": 0.2776467896564737,
+        "evolution_duration": 3.394160215801673
+      },
+      "p50": {
+        "success_rate": 1.0,
+        "expansion_probability": 0.9432343477444411,
+        "safety_margin": 0.2991226712412529,
+        "evolution_duration": 3.9691523589920124
+      },
+      "p75": {
+        "success_rate": 1.0,
+        "expansion_probability": 0.95,
+        "safety_margin": 0.3203624336734163,
+        "evolution_duration": 4.558538916559086
+      },
+      "p90": {
+        "success_rate": 1.0,
+        "expansion_probability": 0.95,
+        "safety_margin": 0.3325828584806106,
+        "evolution_duration": 4.945193557068382
+      },
+      "p95": {
+        "success_rate": 1.0,
+        "expansion_probability": 0.95,
+        "safety_margin": 0.3366535302918138,
+        "evolution_duration": 5.09225789302095
+      }
+    }
+  }
+}

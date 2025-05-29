@@ -1,0 +1,35 @@
+{
+  "name": "Bitcoin Price Projection - $1M Target",
+  "description": "Comprehensive analysis of Bitcoin price trajectories under different adoption scenarios, projecting from $70,000 to $1,000,000 over 30 years",
+  "model": "btc_price_projection",
+  "parameters": {
+    "current_price_usd": 70000.0,
+    "target_price_usd": 1000000.0,
+    "max_years": 30,
+    "baseline_volatility": 0.6,
+    "current_adoption_rate": 0.05,
+    "max_adoption_rate": 0.25,
+    "institutional_allocation": 0.01,
+    "regulatory_clarity_bonus": 0.1,
+    "halving_cycle_impact": 0.2,
+    "network_effect_exponent": 1.5
+  },
+  "simulation": {
+    "current_price_usd": 70000.0,
+    "target_price_usd": 1000000.0,
+    "max_years": 30,
+    "scenarios": [
+      "baseline",
+      "institutional_adoption", 
+      "fiat_crisis",
+      "regulatory_clarity",
+      "combined_shock"
+    ]
+  },
+  "metadata": {
+    "created_by": "Economic Research Team",
+    "scenario_type": "cryptocurrency_projection",
+    "analysis_focus": "long_term_price_targets",
+    "notes": "Analyzes five key scenarios for Bitcoin reaching $1M: baseline growth (40%), institutional adoption (55%), fiat crisis (65%), regulatory clarity (50%), and combined shock (75%). Includes comprehensive risk assessment and investment recommendations."
+  }
+} 
