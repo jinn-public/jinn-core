@@ -9,6 +9,18 @@ from .inflation_shock import InflationShockModel, InflationShock, simulate_infla
 from .bank_panic import BankPanicModel, BankPanicShock, simulate_bank_panic
 from .military_spending_shock import MilitarySpendingShockModel, MilitarySpendingShock, simulate_military_spending_shock
 from .global_conflict import GlobalConflictModel, GlobalConflictShock, simulate_global_conflict
+from .earth_rotation_shock import EarthRotationShockModel, EarthRotationShock, simulate_earth_rotation_shock
+from .btc_price_projection import BTCPriceProjectionModel, BTCProjectionScenario, simulate_btc_price_projection
+from .cosmic_consciousness_timing import (
+    CosmicConsciousnessTimingModel, 
+    CosmicTimingScenario, 
+    simulate_cosmic_consciousness_timing,
+    KARDASHEV_SCALE,
+    estimate_kardashev_progress,
+    get_kardashev_expansion_multiplier,
+    get_kardashev_survival_bonus,
+    get_kardashev_level_name
+)
 
 __all__ = [
     'InterestRateModel', 
@@ -24,5 +36,19 @@ __all__ = [
     'simulate_military_spending_shock',
     'GlobalConflictModel',
     'GlobalConflictShock',
-    'simulate_global_conflict'
+    'simulate_global_conflict',
+    'EarthRotationShockModel',
+    'EarthRotationShock',
+    'simulate_earth_rotation_shock',
+    'BTCPriceProjectionModel',
+    'BTCProjectionScenario',
+    'simulate_btc_price_projection',
+    'CosmicConsciousnessTimingModel',
+    'CosmicTimingScenario',
+    'simulate_cosmic_consciousness_timing',
+    'KARDASHEV_SCALE',
+    'estimate_kardashev_progress',
+    'get_kardashev_expansion_multiplier',
+    'get_kardashev_survival_bonus',
+    'get_kardashev_level_name'
 ] 

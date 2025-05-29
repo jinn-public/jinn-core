@@ -19,7 +19,13 @@ from .models import (
     simulate_military_spending_shock,
     GlobalConflictModel,
     GlobalConflictShock,
-    simulate_global_conflict
+    simulate_global_conflict,
+    EarthRotationShockModel,
+    EarthRotationShock,
+    simulate_earth_rotation_shock,
+    BTCPriceProjectionModel,
+    BTCProjectionScenario,
+    simulate_btc_price_projection
 )
 
 __version__ = "0.1.0"
@@ -41,5 +47,11 @@ __all__ = [
     "simulate_military_spending_shock",
     "GlobalConflictModel",
     "GlobalConflictShock",
-    "simulate_global_conflict"
+    "simulate_global_conflict",
+    "EarthRotationShockModel",
+    "EarthRotationShock",
+    "simulate_earth_rotation_shock",
+    "BTCPriceProjectionModel",
+    "BTCProjectionScenario",
+    "simulate_btc_price_projection"
 ] 

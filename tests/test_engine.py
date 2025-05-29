@@ -19,6 +19,8 @@ from models.inflation_shock import InflationShockModel, InflationShock, simulate
 from models.bank_panic import BankPanicModel, BankPanicShock, simulate_bank_panic
 from models.military_spending_shock import MilitarySpendingShockModel, MilitarySpendingShock, simulate_military_spending_shock
 from models.global_conflict import GlobalConflictModel, GlobalConflictShock, simulate_global_conflict
+from models.earth_rotation_shock import EarthRotationShockModel, EarthRotationShock, simulate_earth_rotation_shock
+from models.btc_price_projection import BTCPriceProjectionModel, BTCProjectionScenario, simulate_btc_price_projection
 
 
 class TestSimulationEngine(unittest.TestCase):
@@ -36,20 +38,26 @@ class TestSimulationEngine(unittest.TestCase):
         self.assertIn('bank_panic', self.engine.models)
         self.assertIn('military_spending_shock', self.engine.models)
         self.assertIn('global_conflict', self.engine.models)
+        self.assertIn('earth_rotation_shock', self.engine.models)
+        self.assertIn('btc_price_projection', self.engine.models)
         self.assertEqual(self.engine.models['interest_rate'], InterestRateModel)
         self.assertEqual(self.engine.models['inflation_shock'], InflationShockModel)
         self.assertEqual(self.engine.models['bank_panic'], BankPanicModel)
         self.assertEqual(self.engine.models['military_spending_shock'], MilitarySpendingShockModel)
         self.assertEqual(self.engine.models['global_conflict'], GlobalConflictModel)
+        self.assertEqual(self.engine.models['earth_rotation_shock'], EarthRotationShockModel)
+        self.assertEqual(self.engine.models['btc_price_projection'], BTCPriceProjectionModel)
     
     def test_model_registration(self):
         """Test that models are properly registered."""
-        self.assertEqual(len(self.engine.models), 5)
+        self.assertEqual(len(self.engine.models), 7)
         self.assertIn('interest_rate', self.engine.models)
         self.assertIn('inflation_shock', self.engine.models)
         self.assertIn('bank_panic', self.engine.models)
         self.assertIn('military_spending_shock', self.engine.models)
         self.assertIn('global_conflict', self.engine.models)
+        self.assertIn('earth_rotation_shock', self.engine.models)
+        self.assertIn('btc_price_projection', self.engine.models)
     
     @patch('builtins.open', new_callable=mock_open, read_data='{"model": "interest_rate", "test": true}')
     def test_load_scenario(self, mock_file):

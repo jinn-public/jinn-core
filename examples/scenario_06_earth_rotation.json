@@ -1,0 +1,35 @@
+{
+  "name": "Earth Rotation Shock - 10% Speed Increase",
+  "description": "Simulation of a 10% increase in Earth's rotation speed and its comprehensive economic and societal impacts including day length changes, circadian disruption, agricultural productivity decline, infrastructure stress, and climate instability",
+  "model": "earth_rotation_shock",
+  "parameters": {
+    "rotation_change_percent": 10.0,
+    "baseline_day_length": 24.0,
+    "initial_gdp": 100000000000000.0,
+    "baseline_gdp_growth": 0.03,
+    "gdp_day_night_dependency": 0.3,
+    "infrastructure_adaptability": 0.5,
+    "agricultural_sensitivity": 0.7,
+    "climate_volatility_multiplier": 1.2,
+    "adaptation_cost_factor": 1.5,
+    "infrastructure_disruption_index": 0.5,
+    "base_adaptation_time": 10,
+    "periods": 30
+  },
+  "simulation": {
+    "shock": {
+      "rotation_change_percent": 10.0,
+      "adaptation_cost_factor": 1.5,
+      "climate_volatility_multiplier": 1.2,
+      "agriculture_loss_rate": 0.7,
+      "infrastructure_disruption_index": 0.5,
+      "start_period": 0
+    }
+  },
+  "metadata": {
+    "created_by": "Economic Research Team",
+    "scenario_type": "planetary_physics",
+    "severity": "severe",
+    "notes": "Models a 10% increase in Earth's rotation speed, shortening days from 24h to 21.6h. Includes comprehensive impacts on human circadian rhythms, agricultural cycles, infrastructure systems, climate patterns, and economic adaptation over 30 years."
+  }
+} 
