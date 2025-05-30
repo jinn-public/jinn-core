@@ -1,0 +1,658 @@
+{
+  "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "regions": {
+    "Eastern European Border Cities": {
+      "region_profile": {
+        "name": "Eastern European Border Cities",
+        "type": "emerging_markets",
+        "tech_hub_score": 50.0,
+        "climate_pressure": "MODERATE",
+        "political_stability": 45.0
+      },
+      "price_evolution": {
+        "initial_price": 100.0,
+        "final_price": 164.98294838105815,
+        "price_series": [
+          95.92449193822348,
+          104.83141652661925,
+          111.02464221833547,
+          145.09496127998665,
+          140.3954630599721,
+          155.14158330264638,
+          174.70765171438103,
+          173.65404447008277,
+          190.9323332780178,
+          164.98294838105815
+        ],
+        "annual_growth_rate": 5.4607318353850465,
+        "peak_year": 9
+      },
+      "market_characteristics": {
+        "volatility_series": [
+          0.13913008061776513,
+          0.015228497667018432,
+          0.020297045156724453,
+          0.2257466852484892,
+          0.11526412074242219,
+          0.020407740526488888,
+          0.03974249857912466,
+          0.09415568745964686,
+          0.009623337978023568,
+          0.22753380314218227
+        ],
+        "average_volatility": 0.09071294971178857,
+        "affordability_series": [
+          52124.331325310115,
+          48411.060044307735,
+          46396.2314768829,
+          36034.27595883831,
+          37799.068698239265,
+          34719.382803475564,
+          31293.513856228925,
+          31955.630987131553,
+          29499.785794661948,
+          34651.76209463078
+        ],
+        "final_affordability": 34651.76209463078,
+        "investment_attractiveness": [
+          27.091158604890154,
+          40.45201643336851,
+          37.07446215099422,
+          61.853835191515586,
+          27.92775459242445,
+          41.66994071931556,
+          43.77841652457914,
+          30.56359792070198,
+          41.11650046446903,
+          17.57578635244844
+        ]
+      },
+      "classification": "\ud83c\udf06 High-Growth",
+      "growth_drivers": [],
+      "risk_factors": [
+        "Political instability",
+        "Financial market stress"
+      ],
+      "sustainability_metrics": {
+        "climate_resilience": 74.0,
+        "resource_security": 72.5,
+        "social_stability": 45.0,
+        "economic_diversity": 59.0
+      }
+    },
+    "Middle Eastern Oil Cities": {
+      "region_profile": {
+        "name": "Middle Eastern Oil Cities",
+        "type": "mature_cities",
+        "tech_hub_score": 50.0,
+        "climate_pressure": "EXTREME",
+        "political_stability": 55.0
+      },
+      "price_evolution": {
+        "initial_price": 100.0,
+        "final_price": 239.4122583784784,
+        "price_series": [
+          100.3264206083383,
+          129.8856665923889,
+          121.84554866387853,
+          116.86866194274177,
+          128.00191797990604,
+          174.52606976440393,
+          176.66205842866364,
+          190.74177140637275,
+          194.37107448475177,
+          239.4122583784784
+        ],
+        "annual_growth_rate": 6.963780061250069,
+        "peak_year": 9
+      },
+      "market_characteristics": {
+        "volatility_series": [
+          0.11173579391661699,
+          0.2009807244374456,
+          0.15670150260183915,
+          0.13679586409361527,
+          0.0018370282837768708,
+          0.26521448958523663,
+          0.08716120572047997,
+          0.02085143256032253,
+          0.08267268861655469,
+          0.12887781244906932
+        ],
+        "average_volatility": 0.11928285422649572,
+        "affordability_series": [
+          49837.32071454408,
+          39457.77955687311,
+          43112.98244050916,
+          46072.68565835073,
+          43117.04496483709,
+          32413.73092334956,
+          32822.36798687522,
+          31159.555269509725,
+          31342.186607233572,
+          26081.850996396803
+        ],
+        "final_affordability": 26081.850996396803,
+        "investment_attractiveness": [
+          38.15975394167164,
+          67.2964057770779,
+          31.643183073149416,
+          33.74874692397181,
+          47.359630504955646,
+          74.179782291857,
+          39.05721276128534,
+          45.80319007730108,
+          39.736064471677864,
+          61.00611457824026
+        ]
+      },
+      "classification": "\ud83c\udf06 High-Growth",
+      "growth_drivers": [],
+      "risk_factors": [
+        "Climate vulnerability",
+        "Water stress",
+        "Financial market stress"
+      ],
+      "sustainability_metrics": {
+        "climate_resilience": 50.0,
+        "resource_security": 50.0,
+        "social_stability": 55.0,
+        "economic_diversity": 61.0
+      }
+    },
+    "Swiss Financial Centers": {
+      "region_profile": {
+        "name": "Swiss Financial Centers",
+        "type": "mature_cities",
+        "tech_hub_score": 50.0,
+        "climate_pressure": "MODERATE",
+        "political_stability": 95.0
+      },
+      "price_evolution": {
+        "initial_price": 250.0,
+        "final_price": 616.3627999287828,
+        "price_series": [
+          286.82622612976144,
+          312.7414645151472,
+          330.2348300491154,
+          383.39963832667854,
+          431.72230214408523,
+          433.95151569913133,
+          510.5866445097423,
+          495.45347197178404,
+          507.00318187249934,
+          616.3627999287828
+        ],
+        "annual_growth_rate": 9.168100583820049,
+        "peak_year": 9
+      },
+      "market_characteristics": {
+        "volatility_series": [
+          0.011929904519045782,
+          0.024273295642039477,
+          0.06043945093205427,
+          0.04286591749242816,
+          0.006162322383264561,
+          0.11646146421791267,
+          0.05322336649526503,
+          0.15476379431764006,
+          0.10356360840807056,
+          0.08707309020209472
+        ],
+        "average_volatility": 0.06607562146098153,
+        "affordability_series": [
+          17432.15767772218,
+          16339.374786525963,
+          15814.261624745264,
+          13921.017931300974,
+          12634.821282546365,
+          12846.4542247002,
+          11158.502843031474,
+          11752.314332845634,
+          11737.253534804646,
+          9867.148109590475
+        ],
+        "final_affordability": 9867.148109590475,
+        "investment_attractiveness": [
+          84.89715711857124,
+          79.20183710246272,
+          75.76022157346124,
+          86.26575841590949,
+          82.77039890499313,
+          70.68302024487541,
+          87.82650331619318,
+          67.20278723490267,
+          72.49780582585961,
+          91.73647568687615
+        ]
+      },
+      "classification": "\ud83c\udf06 High-Growth",
+      "growth_drivers": [],
+      "risk_factors": [
+        "Financial market stress"
+      ],
+      "sustainability_metrics": {
+        "climate_resilience": 74.0,
+        "resource_security": 72.5,
+        "social_stability": 95.0,
+        "economic_diversity": 69.80000000000001
+      }
+    },
+    "Singapore Trade Hub": {
+      "region_profile": {
+        "name": "Singapore Trade Hub",
+        "type": "innovation_frontrunners",
+        "tech_hub_score": 85.0,
+        "climate_pressure": "MODERATE",
+        "political_stability": 88.0
+      },
+      "price_evolution": {
+        "initial_price": 280.0,
+        "final_price": 1078.0539726408822,
+        "price_series": [
+          369.92441614128245,
+          442.1747005948849,
+          500.80061807860824,
+          569.1669273597055,
+          633.2520630698316,
+          688.1797165460454,
+          787.4397956183819,
+          739.2728529361165,
+          835.9146837060435,
+          1078.0539726408822
+        ],
+        "annual_growth_rate": 10.440517019497308,
+        "peak_year": 9
+      },
+      "market_characteristics": {
+        "volatility_series": [
+          0.16668362907600862,
+          0.060535937318634464,
+          0.00498958205354052,
+          0.0038609726343905187,
+          0.030580376824319272,
+          0.05923599561375343,
+          0.004539305913402863,
+          0.2127440480342559,
+          0.023649476418142867,
+          0.13249485944224543
+        ],
+        "average_volatility": 0.06993141833286938,
+        "affordability_series": [
+          13516.274627545503,
+          11669.595734577157,
+          10633.213713734158,
+          9655.38153366193,
+          8955.960720264708,
+          8504.849302370498,
+          7670.626362563114,
+          8431.854946399311,
+          7695.655685846155,
+          6158.100547707566
+        ],
+        "final_affordability": 6158.100547707566,
+        "investment_attractiveness": [
+          91.4491962409342,
+          78.86442706519678,
+          72.59187512797928,
+          72.98473606989428,
+          70.59279565090141,
+          68.00723377195798,
+          73.75690274199304,
+          53.216428529907745,
+          72.40588569151905,
+          88.30031927755788
+        ]
+      },
+      "classification": "\ud83c\udf06 High-Growth",
+      "growth_drivers": [
+        "Technology ecosystem"
+      ],
+      "risk_factors": [
+        "Financial market stress"
+      ],
+      "sustainability_metrics": {
+        "climate_resilience": 74.0,
+        "resource_security": 72.5,
+        "social_stability": 88.0,
+        "economic_diversity": 71.5
+      }
+    },
+    "Canadian Resource Cities": {
+      "region_profile": {
+        "name": "Canadian Resource Cities",
+        "type": "mature_cities",
+        "tech_hub_score": 50.0,
+        "climate_pressure": "LOW",
+        "political_stability": 90.0
+      },
+      "price_evolution": {
+        "initial_price": 100.0,
+        "final_price": 375.72940606334987,
+        "price_series": [
+          121.17920655621673,
+          145.74799550688786,
+          164.078827162273,
+          185.64994108969617,
+          210.51602986536201,
+          240.12357032264308,
+          261.96124536381524,
+          287.6205727216066,
+          334.97251684000116,
+          375.72940606334987
+        ],
+        "annual_growth_rate": 9.408561494118771,
+        "peak_year": 9
+      },
+      "market_characteristics": {
+        "volatility_series": [
+          0.06654206556216712,
+          0.07809756411508044,
+          0.0007792709300495765,
+          0.00301799194322285,
+          0.0035907307630217962,
+          0.008392688712193994,
+          0.04320651197910364,
+          0.03809914729980251,
+          0.026683369825834365,
+          0.018177662197982312
+        ],
+        "average_volatility": 0.02865870033284586,
+        "affordability_series": [
+          41261.20431132242,
+          35266.35122578472,
+          32203.545645619677,
+          29258.66675807675,
+          26525.116005898883,
+          23905.662591718276,
+          22526.39244299304,
+          21091.227694250945,
+          18616.830524899335,
+          17062.114429155612
+        ],
+        "final_affordability": 17062.114429155612,
+        "investment_attractiveness": [
+          81.51253988955004,
+          80.60808974484138,
+          72.91040624032837,
+          73.48013252765563,
+          73.72740640963552,
+          74.39760220455274,
+          69.42768213542297,
+          70.12841860335308,
+          76.79667031591677,
+          72.5005671135351
+        ]
+      },
+      "classification": "\ud83c\udf06 High-Growth",
+      "growth_drivers": [],
+      "risk_factors": [
+        "Financial market stress"
+      ],
+      "sustainability_metrics": {
+        "climate_resilience": 80.0,
+        "resource_security": 85.0,
+        "social_stability": 90.0,
+        "economic_diversity": 61.0
+      }
+    }
+  },
+  "global_trends": {
+    "average_price_index": [
+      194.8361522747645,
+      227.07624874718562,
+      245.59689323444212,
+      280.0360259997617,
+      308.7775552238314,
+      338.384491126974,
+      382.27147912699684,
+      377.3485427011925,
+      412.6387580362627,
+      494.9082770785103
+    ],
+    "price_volatility": [
+      0.09920429473832074,
+      0.07582320383604368,
+      0.048641370334841595,
+      0.0824574862824292,
+      0.031486915799360936,
+      0.09394247573111712,
+      0.04557457773747524,
+      0.10412282193433357,
+      0.049238496249325206,
+      0.1188314454867148
+    ],
+    "high_growth_regions": [
+      "Eastern European Border Cities",
+      "Middle Eastern Oil Cities",
+      "Swiss Financial Centers",
+      "Singapore Trade Hub",
+      "Canadian Resource Cities"
+    ],
+    "high_risk_regions": [],
+    "declining_regions": []
+  },
+  "market_dynamics": {
+    "technology_impact": [
+      0.015,
+      0.0165,
+      0.018,
+      0.0195,
+      0.020999999999999998,
+      0.0225,
+      0.024,
+      0.025500000000000002,
+      0.027,
+      0.028499999999999998
+    ],
+    "climate_adaptation_costs": [
+      0.08,
+      0.0864,
+      0.0928,
+      0.0992,
+      0.10560000000000001,
+      0.11199999999999999,
+      0.1184,
+      0.12480000000000001,
+      0.1312,
+      0.1376
+    ],
+    "infrastructure_investment": [
+      0.15,
+      0.15719138307906305,
+      0.16262206477211846,
+      0.16496242479906081,
+      0.16363946140238522,
+      0.15897708216155934,
+      0.152116800120898,
+      0.1447382515846557,
+      0.13864796257038106,
+      0.13533704823502354
+    ],
+    "migration_flows": [
+      0.05,
+      0.2525,
+      0.255,
+      0.2575,
+      0.26,
+      0.2625,
+      0.265,
+      0.2675,
+      0.27,
+      0.2725
+    ],
+    "political_risk_index": [
+      76.0,
+      76.0,
+      76.0,
+      76.0,
+      76.0,
+      76.0,
+      76.0,
+      76.0,
+      76.0,
+      76.0
+    ]
+  },
+  "summary": {
+    "total_regions_analyzed": 5,
+    "average_annual_growth": 8.288338198814248,
+    "median_annual_growth": 9.168100583820049,
+    "growth_rate_range": [
+      5.4607318353850465,
+      10.440517019497308
+    ],
+    "average_volatility": 0.0749323088129962,
+    "price_index_range": [
+      164.98294838105815,
+      1078.0539726408822
+    ],
+    "regional_distribution": {
+      "high_growth_regions": 5,
+      "high_risk_regions": 0,
+      "declining_regions": 0,
+      "stable_regions": 0
+    },
+    "market_outlook": "\ud83d\udcc8 Optimistic - Strong growth with manageable risk",
+    "key_trends": [
+      "Technology hubs showing 10.4% average growth premium",
+      "1 regions showing climate vulnerability impacts"
+    ],
+    "investment_climate": "Excellent - High returns with low risk"
+  },
+  "regional_rankings": {
+    "by_growth_rate": [
+      [
+        "Singapore Trade Hub",
+        10.440517019497308
+      ],
+      [
+        "Canadian Resource Cities",
+        9.408561494118771
+      ],
+      [
+        "Swiss Financial Centers",
+        9.168100583820049
+      ],
+      [
+        "Middle Eastern Oil Cities",
+        6.963780061250069
+      ],
+      [
+        "Eastern European Border Cities",
+        5.4607318353850465
+      ]
+    ],
+    "by_investment_attractiveness": [
+      [
+        "Swiss Financial Centers",
+        79.88419654241048
+      ],
+      [
+        "Canadian Resource Cities",
+        74.54895151847917
+      ],
+      [
+        "Singapore Trade Hub",
+        74.21698001678416
+      ],
+      [
+        "Middle Eastern Oil Cities",
+        47.7990084401188
+      ],
+      [
+        "Eastern European Border Cities",
+        36.91034689547071
+      ]
+    ],
+    "by_sustainability": [
+      [
+        "Canadian Resource Cities",
+        79.0
+      ],
+      [
+        "Swiss Financial Centers",
+        77.825
+      ],
+      [
+        "Singapore Trade Hub",
+        76.5
+      ],
+      [
+        "Eastern European Border Cities",
+        62.625
+      ],
+      [
+        "Middle Eastern Oil Cities",
+        54.0
+      ]
+    ],
+    "by_risk_adjusted_return": [
+      [
+        "Canadian Resource Cities",
+        243.37500777606095
+      ],
+      [
+        "Singapore Trade Hub",
+        130.61843812177122
+      ],
+      [
+        "Swiss Financial Centers",
+        120.5129896772816
+      ],
+      [
+        "Eastern European Border Cities",
+        54.22075166115268
+      ],
+      [
+        "Middle Eastern Oil Cities",
+        53.86468378126885
+      ]
+    ]
+  },
+  "investment_recommendations": {
+    "top_growth_opportunities": [
+      {
+        "region": "Singapore Trade Hub",
+        "growth_rate": 10.440517019497308,
+        "rationale": "Strong fundamentals with 10.4% annual growth"
+      },
+      {
+        "region": "Canadian Resource Cities",
+        "growth_rate": 9.408561494118771,
+        "rationale": "Strong fundamentals with 9.4% annual growth"
+      },
+      {
+        "region": "Swiss Financial Centers",
+        "growth_rate": 9.168100583820049,
+        "rationale": "Strong fundamentals with 9.2% annual growth"
+      },
+      {
+        "region": "Middle Eastern Oil Cities",
+        "growth_rate": 6.963780061250069,
+        "rationale": "Strong fundamentals with 7.0% annual growth"
+      },
+      {
+        "region": "Eastern European Border Cities",
+        "growth_rate": 5.4607318353850465,
+        "rationale": "Strong fundamentals with 5.5% annual growth"
+      }
+    ],
+    "defensive_plays": [],
+    "value_investments": [],
+    "avoid_list": [],
+    "sector_insights": {},
+    "timing_recommendations": {}
+  }
+}

@@ -1,0 +1,706 @@
+{
+  "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "regions": {
+    "Silicon Valley": {
+      "region_profile": {
+        "name": "Silicon Valley",
+        "type": "innovation_frontrunners",
+        "tech_hub_score": 95.0,
+        "climate_pressure": "MODERATE",
+        "political_stability": 70.0
+      },
+      "price_evolution": {
+        "initial_price": 300.0,
+        "final_price": 2255.821684562393,
+        "price_series": [
+          322.47685605468905,
+          390.6317875969996,
+          520.442764331119,
+          617.3244129186074,
+          703.2979658055724,
+          835.0672338377018,
+          1033.8880675611201,
+          1247.1904660614398,
+          1347.1552267262973,
+          1544.957889298599,
+          1942.0427112236111,
+          2255.821684562393
+        ],
+        "annual_growth_rate": 10.735554382220712,
+        "peak_year": 11
+      },
+      "market_characteristics": {
+        "volatility_series": [
+          0.07195214648436986,
+          0.06237328829623704,
+          0.18123532613259957,
+          0.0344773595433252,
+          0.014506973192998698,
+          0.031484091649295415,
+          0.08011461203004153,
+          0.046235920101328924,
+          0.08202303974605346,
+          0.01744510345349786,
+          0.09064483508772916,
+          0.006903387014680498
+        ],
+        "average_volatility": 0.059949673561013106,
+        "affordability_series": [
+          15504.988671658492,
+          13247.769803462223,
+          10291.477501630316,
+          8980.02615641074,
+          8158.156687618188,
+          7111.321445272426,
+          5944.818229908845,
+          5100.581255982344,
+          4887.3693648628805,
+          4410.7912671842105,
+          3631.739797659635,
+          3236.0042622918577
+        ],
+        "final_affordability": 3236.0042622918577,
+        "investment_attractiveness": [
+          57.82561868489634,
+          71.46816216295703,
+          83.56436594659328,
+          68.94856928766585,
+          64.26013601403346,
+          69.06924249826287,
+          74.14229453633749,
+          70.96442534346622,
+          58.34852935872799,
+          65.01632298798354,
+          76.03531684210625,
+          66.49049463186529
+        ]
+      },
+      "classification": "\ud83c\udf06 High-Growth",
+      "growth_drivers": [
+        "Technology ecosystem"
+      ],
+      "risk_factors": [],
+      "sustainability_metrics": {
+        "climate_resilience": 74.0,
+        "resource_security": 72.5,
+        "social_stability": 70.0,
+        "economic_diversity": 74.5
+      }
+    },
+    "Austin Tech Corridor": {
+      "region_profile": {
+        "name": "Austin Tech Corridor",
+        "type": "upwardly_mobile",
+        "tech_hub_score": 85.0,
+        "climate_pressure": "MODERATE",
+        "political_stability": 70.0
+      },
+      "price_evolution": {
+        "initial_price": 120.0,
+        "final_price": 880.4938682908377,
+        "price_series": [
+          128.53620963236233,
+          159.48056929055477,
+          181.51258504036926,
+          206.2939013161765,
+          261.6595315360782,
+          318.1166746622272,
+          341.07176104939697,
+          427.65532562172325,
+          519.6583149412372,
+          549.3174768227549,
+          683.0458352441739,
+          880.4938682908377
+        ],
+        "annual_growth_rate": 12.539064614984618,
+        "peak_year": 11
+      },
+      "market_characteristics": {
+        "volatility_series": [
+          0.11173991973031411,
+          0.05566929879875189,
+          0.049126410188568025,
+          0.051448288806416775,
+          0.07820729277096046,
+          0.023390666149121615,
+          0.12241566911442715,
+          0.05708232405969103,
+          0.01615850543632404,
+          0.1441006474326375,
+          0.04006957269938348,
+          0.08349496113383864
+        ],
+        "average_volatility": 0.06940862969336957,
+        "affordability_series": [
+          38899.544449777524,
+          32762.611917196427,
+          30081.247527743828,
+          27658.746034643817,
+          22787.601002422733,
+          19586.86917270695,
+          19090.70573360822,
+          15910.731714696163,
+          13683.035294041412,
+          13526.74184890138,
+          11367.9737259341,
+          9215.584027070297
+        ],
+        "final_affordability": 9215.584027070297,
+        "investment_attractiveness": [
+          57.44684136030192,
+          74.40776321320853,
+          64.14819231447653,
+          63.986004452691645,
+          77.17156261042938,
+          71.9098999482455,
+          57.54926642189062,
+          75.71906573930244,
+          71.84668387696573,
+          56.04076859006959,
+          74.67779060327169,
+          79.2403294467172
+        ]
+      },
+      "classification": "\ud83c\udf06 High-Growth",
+      "growth_drivers": [
+        "Technology ecosystem",
+        "Population growth"
+      ],
+      "risk_factors": [],
+      "sustainability_metrics": {
+        "climate_resilience": 74.0,
+        "resource_security": 72.5,
+        "social_stability": 70.0,
+        "economic_diversity": 71.5
+      }
+    },
+    "Rural Colorado Mountain Towns": {
+      "region_profile": {
+        "name": "Rural Colorado Mountain Towns",
+        "type": "emerging_markets",
+        "tech_hub_score": 40.0,
+        "climate_pressure": "LOW",
+        "political_stability": 70.0
+      },
+      "price_evolution": {
+        "initial_price": 80.0,
+        "final_price": 324.2816903661803,
+        "price_series": [
+          95.40715624872041,
+          107.30262019030108,
+          120.79493559173856,
+          137.8277002970561,
+          137.47911797004403,
+          164.6874603069324,
+          205.01254424476082,
+          218.16359478807072,
+          241.122771560412,
+          251.10914605196396,
+          308.8802417495264,
+          324.2816903661803
+        ],
+        "annual_growth_rate": 7.228397905150752,
+        "peak_year": 9
+      },
+      "market_characteristics": {
+        "volatility_series": [
+          0.07121445310900502,
+          0.002906045000124957,
+          0.0035657822615038216,
+          0.01993061933229297,
+          0.12400411661633177,
+          0.07603390964849598,
+          0.12258325370476594,
+          0.058527459215329224,
+          0.01783664987726598,
+          0.08205885988629051,
+          0.1061886858746969,
+          0.07441279926673634
+        ],
+        "average_volatility": 0.06327188614940328,
+        "affordability_series": [
+          52406.970258764624,
+          47762.114204767946,
+          43487.95729114385,
+          39066.5527567756,
+          40144.747323208554,
+          34350.162750156844,
+          28283.474615786257,
+          27242.99062872817,
+          25265.197675547064,
+          24866.935147181546,
+          20721.373062676957,
+          20230.662056800855
+        ],
+        "final_affordability": 20230.662056800855,
+        "investment_attractiveness": [
+          66.2589453109005,
+          59.46810450001249,
+          59.57407822615039,
+          61.1005619332293,
+          46.74708833836683,
+          66.7908909648496,
+          71.4858253704766,
+          53.414754078467084,
+          57.523835012273395,
+          51.14161401137095,
+          70.0063685874697,
+          51.986220073326365
+        ]
+      },
+      "classification": "\ud83c\udf06 High-Growth",
+      "growth_drivers": [],
+      "risk_factors": [],
+      "sustainability_metrics": {
+        "climate_resilience": 80.0,
+        "resource_security": 72.5,
+        "social_stability": 70.0,
+        "economic_diversity": 54.0
+      }
+    },
+    "Manhattan Financial District": {
+      "region_profile": {
+        "name": "Manhattan Financial District",
+        "type": "mature_cities",
+        "tech_hub_score": 75.0,
+        "climate_pressure": "MODERATE",
+        "political_stability": 70.0
+      },
+      "price_evolution": {
+        "initial_price": 400.0,
+        "final_price": 1797.1972915770004,
+        "price_series": [
+          406.38557202065834,
+          460.5907371683949,
+          536.6845089500689,
+          692.1829076759356,
+          716.3714415232529,
+          770.2102909824721,
+          867.6068056000643,
+          1131.9525433195295,
+          1302.5720315438355,
+          1496.6342387349173,
+          1602.1405754222978,
+          1797.1972915770004
+        ],
+        "annual_growth_rate": 9.422928442400869,
+        "peak_year": 11
+      },
+      "market_characteristics": {
+        "volatility_series": [
+          0.10991106994835408,
+          0.005808586622462959,
+          0.035934079647326096,
+          0.16026393625152824,
+          0.09622970796941165,
+          0.05772006453141234,
+          0.008120555340017231,
+          0.1684087991740226,
+          0.012755248570273504,
+          0.009308858467370461,
+          0.07087926098993733,
+          0.02132743355859144
+        ],
+        "average_volatility": 0.063055633422559,
+        "affordability_series": [
+          12303.586407210905,
+          11051.025540140343,
+          9654.871555985379,
+          7620.657923656191,
+          7495.883913883939,
+          7097.40482287615,
+          6414.070399330543,
+          5004.679042272347,
+          4427.417521494064,
+          3922.69308543028,
+          3730.329244150769,
+          3385.320623063579
+        ],
+        "final_affordability": 3385.320623063579,
+        "investment_attractiveness": [
+          51.92972633849793,
+          63.67169199557962,
+          66.85424129806594,
+          79.30722695848615,
+          53.827862536392175,
+          57.84882688019209,
+          62.97877779933161,
+          80.80171325073559,
+          65.40635819036068,
+          65.23171918007037,
+          57.3829072343396,
+          62.508089977474185
+        ]
+      },
+      "classification": "\ud83c\udf06 High-Growth",
+      "growth_drivers": [],
+      "risk_factors": [],
+      "sustainability_metrics": {
+        "climate_resilience": 74.0,
+        "resource_security": 72.5,
+        "social_stability": 70.0,
+        "economic_diversity": 68.5
+      }
+    },
+    "Bangalore IT Hub": {
+      "region_profile": {
+        "name": "Bangalore IT Hub",
+        "type": "innovation_frontrunners",
+        "tech_hub_score": 88.0,
+        "climate_pressure": "MODERATE",
+        "political_stability": 70.0
+      },
+      "price_evolution": {
+        "initial_price": 90.0,
+        "final_price": 992.231562819098,
+        "price_series": [
+          110.1216070879102,
+          142.67006277217243,
+          175.93869357933036,
+          214.97403876091695,
+          240.88367984315016,
+          282.8500877856629,
+          334.8758377443143,
+          364.97104624762227,
+          500.41451921942854,
+          663.7284077798417,
+          834.6632553902058,
+          992.231562819098
+        ],
+        "annual_growth_rate": 15.184017984301136,
+        "peak_year": 11
+      },
+      "market_characteristics": {
+        "volatility_series": [
+          0.00779841208789114,
+          0.07730329531445848,
+          0.01243078656746009,
+          0.00012401805079983327,
+          0.10371048814929897,
+          0.05250643953198132,
+          0.04528099324064808,
+          0.14183524795689686,
+          0.1369124463696273,
+          0.08967221444525299,
+          0.01836233847574439,
+          0.052884307413708
+        ],
+        "average_volatility": 0.06156841563364729,
+        "affordability_series": [
+          45404.35008370786,
+          37429.01556388436,
+          32415.382221924232,
+          28333.338272413544,
+          27005.214928283083,
+          24562.35194571502,
+          22157.14028675225,
+          21712.52645730416,
+          16912.590123990536,
+          13618.236517058167,
+          11565.681713949883,
+          10390.602865214223
+        ],
+        "final_affordability": 10390.602865214223,
+        "investment_attractiveness": [
+          72.69067454212244,
+          79.89016286477919,
+          73.65191199007934,
+          72.52023513841331,
+          62.38578451840344,
+          67.75518938013519,
+          68.72673400926853,
+          59.32030853764364,
+          87.44407797029606,
+          82.96905477785863,
+          76.08706718090777,
+          69.21140259196252
+        ]
+      },
+      "classification": "\ud83c\udf06 High-Growth",
+      "growth_drivers": [
+        "Technology ecosystem",
+        "Population growth"
+      ],
+      "risk_factors": [],
+      "sustainability_metrics": {
+        "climate_resilience": 74.0,
+        "resource_security": 72.5,
+        "social_stability": 70.0,
+        "economic_diversity": 72.4
+      }
+    }
+  },
+  "global_trends": {
+    "average_price_index": [
+      212.58548020886806,
+      252.13515540368456,
+      307.0746974985252,
+      373.7205921937385,
+      411.93834733561954,
+      474.1863495149993,
+      556.4910032399313,
+      677.986595207677,
+      782.184572798242,
+      901.1494317376153,
+      1074.154523805963,
+      1250.005219523102
+    ],
+    "price_volatility": [
+      0.07452320027198685,
+      0.04081210280640706,
+      0.05645847695949152,
+      0.053248844396872594,
+      0.0833317157398003,
+      0.048227034302061336,
+      0.07570301668597999,
+      0.09441795010145373,
+      0.053137177999908844,
+      0.06851713673700986,
+      0.06522893862549825,
+      0.047804577677510986
+    ],
+    "high_growth_regions": [
+      "Silicon Valley",
+      "Austin Tech Corridor",
+      "Rural Colorado Mountain Towns",
+      "Manhattan Financial District",
+      "Bangalore IT Hub"
+    ],
+    "high_risk_regions": [],
+    "declining_regions": []
+  },
+  "market_dynamics": {
+    "technology_impact": [
+      0.025,
+      0.027500000000000004,
+      0.03,
+      0.0325,
+      0.034999999999999996,
+      0.037500000000000006,
+      0.04000000000000001,
+      0.04250000000000001,
+      0.045000000000000005,
+      0.0475,
+      0.05,
+      0.052500000000000005
+    ],
+    "climate_adaptation_costs": [
+      0.08,
+      0.0864,
+      0.0928,
+      0.0992,
+      0.10560000000000001,
+      0.11199999999999999,
+      0.1184,
+      0.12480000000000001,
+      0.1312,
+      0.1376,
+      0.14400000000000002,
+      0.1504
+    ],
+    "infrastructure_investment": [
+      0.15,
+      0.15719138307906305,
+      0.16262206477211846,
+      0.16496242479906081,
+      0.16363946140238522,
+      0.15897708216155934,
+      0.152116800120898,
+      0.1447382515846557,
+      0.13864796257038106,
+      0.13533704823502354,
+      0.13561613588005292,
+      0.13941689511644412
+    ],
+    "migration_flows": [
+      0.05,
+      0.052500000000000005,
+      0.05500000000000001,
+      0.057499999999999996,
+      0.06,
+      0.0625,
+      0.065,
+      0.0675,
+      0.06999999999999999,
+      0.0725,
+      0.07500000000000001,
+      0.07750000000000001
+    ],
+    "political_risk_index": [
+      53.0,
+      53.0,
+      53.0,
+      53.0,
+      53.0,
+      53.0,
+      53.0,
+      53.0,
+      53.0,
+      53.0,
+      53.0,
+      53.0
+    ]
+  },
+  "summary": {
+    "total_regions_analyzed": 5,
+    "average_annual_growth": 11.021992665811617,
+    "median_annual_growth": 10.735554382220712,
+    "growth_rate_range": [
+      7.228397905150752,
+      15.184017984301136
+    ],
+    "average_volatility": 0.06345084769199845,
+    "price_index_range": [
+      324.2816903661803,
+      2255.821684562393
+    ],
+    "regional_distribution": {
+      "high_growth_regions": 5,
+      "high_risk_regions": 0,
+      "declining_regions": 0,
+      "stable_regions": 0
+    },
+    "market_outlook": "\ud83d\udcc8 Optimistic - Strong growth with manageable risk",
+    "key_trends": [
+      "Technology hubs showing 12.8% average growth premium"
+    ],
+    "investment_climate": "Excellent - High returns with low risk"
+  },
+  "regional_rankings": {
+    "by_growth_rate": [
+      [
+        "Bangalore IT Hub",
+        15.184017984301136
+      ],
+      [
+        "Austin Tech Corridor",
+        12.539064614984618
+      ],
+      [
+        "Silicon Valley",
+        10.735554382220712
+      ],
+      [
+        "Manhattan Financial District",
+        9.422928442400869
+      ],
+      [
+        "Rural Colorado Mountain Towns",
+        7.228397905150752
+      ]
+    ],
+    "by_investment_attractiveness": [
+      [
+        "Bangalore IT Hub",
+        72.72105029182251
+      ],
+      [
+        "Silicon Valley",
+        68.84445652457464
+      ],
+      [
+        "Austin Tech Corridor",
+        68.67868071479755
+      ],
+      [
+        "Manhattan Financial District",
+        63.979095136627166
+      ],
+      [
+        "Rural Colorado Mountain Towns",
+        59.62485720057443
+      ]
+    ],
+    "by_sustainability": [
+      [
+        "Silicon Valley",
+        72.75
+      ],
+      [
+        "Bangalore IT Hub",
+        72.225
+      ],
+      [
+        "Austin Tech Corridor",
+        72.0
+      ],
+      [
+        "Manhattan Financial District",
+        71.25
+      ],
+      [
+        "Rural Colorado Mountain Towns",
+        69.125
+      ]
+    ],
+    "by_risk_adjusted_return": [
+      [
+        "Bangalore IT Hub",
+        212.16087920720292
+      ],
+      [
+        "Austin Tech Corridor",
+        157.90556597441955
+      ],
+      [
+        "Silicon Valley",
+        153.47540361080746
+      ],
+      [
+        "Manhattan Financial District",
+        128.98291344485344
+      ],
+      [
+        "Rural Colorado Mountain Towns",
+        98.6517242153677
+      ]
+    ]
+  },
+  "investment_recommendations": {
+    "top_growth_opportunities": [
+      {
+        "region": "Bangalore IT Hub",
+        "growth_rate": 15.184017984301136,
+        "rationale": "Strong fundamentals with 15.2% annual growth"
+      },
+      {
+        "region": "Austin Tech Corridor",
+        "growth_rate": 12.539064614984618,
+        "rationale": "Strong fundamentals with 12.5% annual growth"
+      },
+      {
+        "region": "Silicon Valley",
+        "growth_rate": 10.735554382220712,
+        "rationale": "Strong fundamentals with 10.7% annual growth"
+      },
+      {
+        "region": "Manhattan Financial District",
+        "growth_rate": 9.422928442400869,
+        "rationale": "Strong fundamentals with 9.4% annual growth"
+      },
+      {
+        "region": "Rural Colorado Mountain Towns",
+        "growth_rate": 7.228397905150752,
+        "rationale": "Strong fundamentals with 7.2% annual growth"
+      }
+    ],
+    "defensive_plays": [],
+    "value_investments": [],
+    "avoid_list": [],
+    "sector_insights": {},
+    "timing_recommendations": {}
+  }
+}

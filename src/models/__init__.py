@@ -23,6 +23,14 @@ from .cosmic_consciousness_timing import (
 )
 from .ai_unemployment_shock import AIUnemploymentShockModel, AIUnemploymentShock, simulate_ai_unemployment_shock
 from .plastic_spread_simulation import PlasticSpreadSimulationModel, PlasticSpreadShock, simulate_plastic_spread
+from .geopolitical_land_analyst import (
+    GeopoliticalLandAnalyst, 
+    RegionProfile, 
+    GeopoliticalShock, 
+    simulate_land_price_trends,
+    RegionType,
+    ClimatePressure
+)
 
 __all__ = [
     'InterestRateModel', 
@@ -58,5 +66,11 @@ __all__ = [
     'simulate_ai_unemployment_shock',
     'PlasticSpreadSimulationModel',
     'PlasticSpreadShock',
-    'simulate_plastic_spread'
+    'simulate_plastic_spread',
+    'GeopoliticalLandAnalyst',
+    'RegionProfile',
+    'GeopoliticalShock',
+    'simulate_land_price_trends',
+    'RegionType',
+    'ClimatePressure'
 ] 
