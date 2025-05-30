@@ -22,6 +22,7 @@ from .cosmic_consciousness_timing import (
     get_kardashev_level_name
 )
 from .ai_unemployment_shock import AIUnemploymentShockModel, AIUnemploymentShock, simulate_ai_unemployment_shock
+from .plastic_spread_simulation import PlasticSpreadSimulationModel, PlasticSpreadShock, simulate_plastic_spread
 
 __all__ = [
     'InterestRateModel', 
@@ -54,5 +55,8 @@ __all__ = [
     'get_kardashev_level_name',
     'AIUnemploymentShockModel',
     'AIUnemploymentShock',
-    'simulate_ai_unemployment_shock'
+    'simulate_ai_unemployment_shock',
+    'PlasticSpreadSimulationModel',
+    'PlasticSpreadShock',
+    'simulate_plastic_spread'
 ] 

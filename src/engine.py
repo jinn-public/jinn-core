@@ -19,6 +19,7 @@ try:
     from .models.earth_rotation_shock import EarthRotationShockModel
     from .models.btc_price_projection import BTCPriceProjectionModel
     from .models.ai_unemployment_shock import AIUnemploymentShockModel
+    from .models.plastic_spread_simulation import PlasticSpreadSimulationModel
 except ImportError:
     # Fall back to absolute imports (when used from tests)
     from models.interest_rate import InterestRateModel
@@ -29,6 +30,7 @@ except ImportError:
     from models.earth_rotation_shock import EarthRotationShockModel
     from models.btc_price_projection import BTCPriceProjectionModel
     from models.ai_unemployment_shock import AIUnemploymentShockModel
+    from models.plastic_spread_simulation import PlasticSpreadSimulationModel
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +55,7 @@ class SimulationEngine:
         self.models['earth_rotation_shock'] = EarthRotationShockModel
         self.models['btc_price_projection'] = BTCPriceProjectionModel
         self.models['ai_unemployment_shock'] = AIUnemploymentShockModel
+        self.models['plastic_spread_simulation'] = PlasticSpreadSimulationModel
         logger.info(f"Registered {len(self.models)} economic models")
     
     def load_scenario(self, scenario_path: str) -> Dict[str, Any]:

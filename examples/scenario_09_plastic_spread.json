@@ -1,0 +1,64 @@
+{
+  "model": "plastic_spread_simulation",
+  "name": "Global Plastic Waste Accumulation Crisis with Policy Interventions",
+  "description": "Simulation of plastic waste accumulation over 50 years with multiple intervention scenarios including production caps and recycling improvements",
+  "parameters": {
+    "annual_production_tonnes": 400000000,
+    "annual_growth_rate": 0.03,
+    "production_cap_enabled": false,
+    "production_cap_year": 10,
+    "production_cap_multiplier": 1.5,
+    "coverage_density_kg_per_sq_km": 100000,
+    "earth_surface_area_sq_km": 510000000,
+    "ocean_area_sq_km": 361000000,
+    "land_area_sq_km": 149000000,
+    "plastic_persistence_rate": 0.8,
+    "ocean_allocation_rate": 0.7,
+    "cleanup_cost_per_tonne": 1000.0,
+    "environmental_damage_multiplier": 2.0,
+    "gdp_impact_threshold": 0.1,
+    "gdp_impact_sensitivity": -0.02,
+    "recycling_improvement_enabled": false,
+    "recycling_improvement_year": 5,
+    "initial_recycling_rate": 0.09,
+    "target_recycling_rate": 0.5,
+    "recycling_improvement_rate": 0.05,
+    "periods": 50,
+    "baseline_gdp": 100000000000000.0
+  },
+  "simulation": {
+    "compare_scenarios": true,
+    "scenario_type": "baseline"
+  },
+  "metadata": {
+    "created_by": "Environmental Economics Research Team",
+    "created_date": "2024-01-15",
+    "version": "1.0",
+    "assumptions": [
+      "Current global plastic production: 400 million tonnes annually",
+      "3% annual growth in plastic production without intervention",
+      "80% of plastic persists in the environment long-term",
+      "70% of plastic waste ends up in oceans",
+      "100,000 kg of plastic per sq km creates visible surface coverage",
+      "Cleanup costs estimated at $1,000 per tonne",
+      "Environmental damage costs scale exponentially with coverage",
+      "Production caps limit growth to 1.5x initial production after year 10",
+      "Recycling improvements can reach 50% rate starting year 5"
+    ],
+    "outputs": [
+      "Earth surface coverage progression over 50 years",
+      "Ocean vs land coverage distribution",
+      "Economic costs of cleanup and environmental damage",
+      "Critical threshold years (1% coverage, 10% ocean coverage)",
+      "GDP impact from environmental degradation",
+      "Policy intervention effectiveness comparison",
+      "Scenario comparison: baseline vs production caps vs recycling vs combined"
+    ],
+    "key_insights": [
+      "Reveals timeline until critical environmental tipping points",
+      "Quantifies economic benefits of early intervention",
+      "Shows effectiveness of production limits vs recycling improvements",
+      "Demonstrates exponential nature of environmental damage costs"
+    ]
+  }
+} 

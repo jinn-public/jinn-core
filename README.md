@@ -4,7 +4,7 @@
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-32%20passing-brightgreen.svg)](#testing)
+[![Tests](https://img.shields.io/badge/tests-36%20passing-brightgreen.svg)](#testing)
 
 ---
 
@@ -128,6 +128,27 @@ print(f"AI Productivity Boost: {result['productivity_boost']:.1f}%")
 print(f"UBI Activated: {result['ubi_activated']}")
 ```
 
+### Plastic Spread Simulation
+
+```python
+from src.models.plastic_spread_simulation import simulate_plastic_spread
+
+# Assess plastic accumulation and coverage progression
+result = simulate_plastic_spread(
+    annual_production_tonnes=400_000_000,   # 400M tonnes/year
+    annual_growth_rate=0.03,                # 3% annual growth
+    coverage_density_kg_per_sq_km=100_000,  # 100 tonnes per sq km for coverage
+    earth_surface_area_sq_km=510_000_000,   # Earth's surface area
+    ocean_area_sq_km=361_000_000,           # Ocean area
+    current_year=25                         # Year 25 projection
+)
+
+print(f"Earth Coverage: {result['earth_coverage_percent']:.3f}%")
+print(f"Ocean Coverage: {result['ocean_coverage_percent']:.3f}%")
+print(f"Cleanup Cost: ${result['cleanup_cost_billion_usd']:.1f}B")
+print(f"Environmental Damage: ${result['environmental_damage_cost_billion_usd']:.1f}B")
+```
+
 ---
 
 ## 📊 Available Models
@@ -151,31 +172,38 @@ print(f"UBI Activated: {result['ubi_activated']}")
 - **Example**: 30-year simulation with UBI vs. no-UBI scenario comparison
 - **Key Insights**: Can reveal trade-offs between AI productivity gains and employment losses
 
-### 4. Bank Panic Model
+### 4. Plastic Spread Simulation Model
+- **Purpose**: Simulate environmental and economic effects of global plastic waste accumulation
+- **Effects**: Earth/ocean surface coverage progression, cleanup costs, environmental damage, GDP impact from pollution
+- **Key Parameters**: Production growth (3%/year), coverage density (100kg/sq km), recycling rates (9-50%), policy interventions
+- **Example**: 50-year simulation comparing baseline vs. production caps vs. recycling improvements vs. combined interventions
+- **Key Insights**: Reveals critical environmental tipping points, economic benefits of early intervention, and policy effectiveness
+
+### 5. Bank Panic Model
 - **Purpose**: Simulate banking crises and systemic financial risk
 - **Effects**: Bank failures, liquidity crises, central bank interventions, economic contraction
 - **Key Parameters**: Withdrawal rates, liquidity ratios, central bank support
 - **Example**: Regional banking crisis with Federal Reserve intervention
 
-### 5. Military Spending Shock Model
+### 6. Military Spending Shock Model
 - **Purpose**: Simulate effects of defense spending changes
 - **Effects**: GDP growth, employment, government deficit, sector reallocation
 - **Key Parameters**: Spending magnitude, duration, economic multipliers
 - **Example**: Defense spending surge during geopolitical tensions
 
-### 6. Global Conflict Model
+### 7. Global Conflict Model
 - **Purpose**: Simulate economic impacts of international conflicts
 - **Effects**: Trade disruption, energy price shocks, defense spending, supply chains
 - **Key Parameters**: Conflict intensity, duration, geographic scope
 - **Example**: Major power conflict affecting global trade routes
 
-### 7. Earth Rotation Shock Model
+### 8. Earth Rotation Shock Model
 - **Purpose**: Simulate extreme geological/astronomical disruptions
 - **Effects**: Infrastructure damage, agricultural disruption, energy systems
 - **Key Parameters**: Rotation change magnitude, adaptation timeframe
 - **Example**: Sudden changes in Earth's rotation affecting global systems
 
-### 8. Bitcoin Price Projection Model
+### 9. Bitcoin Price Projection Model
 - **Purpose**: Simulate cryptocurrency market dynamics and adoption scenarios
 - **Effects**: Bitcoin price evolution, market adoption, institutional investment
 - **Key Parameters**: Adoption rates, regulatory environment, market sentiment
@@ -193,6 +221,7 @@ jinn-core/
 │       ├── interest_rate.py         # Interest rate shock model
 │       ├── inflation_shock.py       # Inflation shock model
 │       ├── ai_unemployment_shock.py # AI unemployment & UBI model
+│       ├── plastic_spread_simulation.py # Plastic waste & environment model
 │       ├── bank_panic.py           # Banking crisis model
 │       ├── military_spending_shock.py # Defense spending model
 │       ├── global_conflict.py       # International conflict model
@@ -207,7 +236,8 @@ jinn-core/
 │   ├── scenario_05_global_conflict.json   # International conflict
 │   ├── scenario_06_earth_rotation.json    # Geological disruption
 │   ├── scenario_07_btc_projection.json    # Bitcoin price projection
-│   └── scenario_08_ai_unemployment.json   # AI unemployment & UBI
+│   ├── scenario_08_ai_unemployment.json   # AI unemployment & UBI
+│   └── scenario_09_plastic_spread.json    # Plastic waste accumulation
 ├── tests/                 # Test suite
 ├── docs/                  # Documentation
 │   └── roadmap.md           # Development roadmap
@@ -228,11 +258,12 @@ python tests/test_engine.py
 Run individual model tests:
 ```bash
 python test_ai_unemployment.py
+python test_plastic_spread.py
 ```
 
 Expected output:
 ```
-🧪 Running AI Unemployment Shock Model Tests
+🧪 Running Plastic Spread Simulation Model Tests
 ✅ All tests passed!
 ```
 
@@ -242,6 +273,7 @@ Expected output:
 - ✅ Interest rate shock simulation
 - ✅ Inflation shock simulation
 - ✅ AI unemployment shock simulation
+- ✅ Plastic spread simulation
 - ✅ Banking crisis simulation
 - ✅ Military spending shock simulation
 - ✅ Global conflict simulation
@@ -291,6 +323,21 @@ Expected key output:
 - Final Tax Rate: 21.2%
 
 🎯 Overall Assessment: ✅ FAVORABLE - Strong net economic growth despite employment losses
+```
+
+### Plastic Waste Accumulation Crisis
+```bash
+python demo_plastic_spread_simulation.py
+```
+
+Expected key output:
+```
+📊 Simulation Results Summary (50 years):
+Scenario                  Earth Coverage  Ocean Coverage  Total Cost (B$) Plastic Acc. (Gt)
+Baseline                  66.337%         65.602%         1556464.3       33.83
+Combined                  23.150%         22.894%         86888.9         11.81
+
+🎯 Overall Assessment: ✅ HIGHLY EFFECTIVE - Major economic and environmental benefits
 ```
 
 ### Banking Crisis Simulation
@@ -344,7 +391,7 @@ python demo_bank_panic.py
 ## 🌍 What We're Building
 
 - 🌍 A transparent **risk simulation engine**
-- 🧠 Plug-in **scenario modules** (interest rates, inflation, AI unemployment, banking crises, conflicts)
+- 🧠 Plug-in **scenario modules** (interest rates, inflation, AI unemployment, environmental crises, banking crises, conflicts)
 - 📊 Clear, civic-focused **user interfaces** (coming soon)
 - 🗳️ Community governance model (non-commercial, public-first)
 - 🔍 Integrations with open data (IMF, World Bank, FRED)
@@ -356,6 +403,7 @@ python demo_bank_panic.py
 We're looking for:
 - **Engineers** (Python, TypeScript, data modeling)
 - **Financial analysts and economists**  
+- **Environmental scientists and policy experts**
 - **Civic technologists**
 - **Designers and writers**
 
@@ -371,10 +419,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## 📊 Current Capabilities
 
-**Economic Models:** 8 implemented
+**Economic Models:** 9 implemented
 - Interest Rate Shock Model ✅
 - Inflation Shock Model ✅
-- AI Unemployment Shock Model ✅ **NEW**
+- AI Unemployment Shock Model ✅
+- Plastic Spread Simulation Model ✅ **NEW**
 - Bank Panic Model ✅
 - Military Spending Shock Model ✅
 - Global Conflict Model ✅
@@ -384,7 +433,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 **Scenario Analysis:**
 - Federal Reserve policy changes ✅
 - Supply chain disruptions ✅
-- AI-driven unemployment with UBI responses ✅ **NEW**
+- AI-driven unemployment with UBI responses ✅
+- Global plastic waste accumulation and environmental policy ✅ **NEW**
 - Banking system crises ✅
 - Defense spending changes ✅
 - International conflicts ✅
@@ -396,15 +446,19 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 - JSON results export ✅
 - Formatted summary reports ✅
 - Time series data tables ✅
-- Scenario comparison analysis ✅ **NEW**
-- Multi-decade projections ✅ **NEW**
+- Scenario comparison analysis ✅
+- Multi-decade projections ✅
+- Environmental impact assessments ✅ **NEW**
 
 **Key Research Capabilities:**
 - **Productivity vs Employment Trade-offs**: Quantify how AI productivity gains offset job losses
 - **UBI Fiscal Sustainability**: Model when and how Universal Basic Income can be implemented
-- **Long-term Economic Projections**: 30-year simulations with complex feedback loops
+- **Environmental Tipping Points**: Identify critical thresholds for plastic pollution and ecosystem collapse
+- **Policy Intervention Effectiveness**: Compare production caps, recycling improvements, and combined strategies
+- **Long-term Economic Projections**: 30-50 year simulations with complex feedback loops
 - **Policy Scenario Comparison**: Side-by-side analysis of different policy responses
 - **Dynamic Tax Adjustment**: Progressive taxation that responds to economic conditions
+- **Cost-Effectiveness Analysis**: Economic returns per unit of environmental intervention
 
 ---
 
@@ -412,21 +466,24 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 **Phase 1 (Current):** Foundation ✅
 - Core simulation engine
-- 8 economic models including AI unemployment
+- 9 economic and environmental models
 - Test suite and documentation
 - Scenario comparison capabilities
+- Multi-intervention analysis
 
 **Phase 2 (Next):** Model Expansion  
 - Climate change economic impacts
 - Healthcare system shocks
 - Immigration policy effects
 - Housing market dynamics
+- Carbon taxation and cap-and-trade systems
 
 **Phase 3 (Future):** Platform Features
 - Web interface
 - Real-time data integration
 - Community scenario sharing
 - Visualization dashboard
+- API for third-party integrations
 
 See [docs/roadmap.md](docs/roadmap.md) for detailed development plans.
 
