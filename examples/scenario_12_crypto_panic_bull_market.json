@@ -1,0 +1,54 @@
+{
+  "model": "crypto_panic",
+  "description": "Current prices with peak bull market euphoria - testing DOGE mania when market psychology is extremely optimistic",
+  "parameters": {
+    "periods": 20,
+    
+    "// Current market prices": "",
+    "btc_initial_price": 110000.0,
+    "eth_initial_price": 2500.0,
+    "doge_initial_price": 0.20,
+    "doge_supply": 140000000000,
+    
+    "// Strong market infrastructure (bull euphoria)": "",
+    "num_exchanges": 30,
+    "num_influencers": 100,
+    "exchange_liquidity_ratio": 0.20,
+    "exchange_freeze_threshold": 0.30,
+    "exchange_recovery_rate": 0.15,
+    
+    "// Confident but leveraged retail (bull psychology)": "",
+    "retail_panic_threshold": 0.08,
+    "retail_sell_probability": 0.25,
+    "retail_herd_multiplier": 1.5,
+    "retail_doge_fomo": 1.2,
+    
+    "// More whale activity (bull market speculation)": "",
+    "num_whales": 200,
+    "whale_coordination_prob": 0.15,
+    "whale_average_holding": 800.0,
+    "whale_doge_pump_power": 3.0,
+    
+    "// Peak DOGE euphoria mechanics": "",
+    "doge_social_media_factor": 2.5,
+    "doge_celebrity_effect": 0.5,
+    "doge_volatility_multiplier": 5.0,
+    "doge_pump_probability": 0.2,
+    
+    "// Lower base volatility in bull euphoria": "",
+    "price_volatility_base": 0.015,
+    "btc_to_doge_correlation": 0.2,
+    "eth_to_doge_correlation": 0.15,
+    
+    "random_seed": 789
+  },
+  "simulation": {
+    "panic": {
+      "trigger_type": "whale_dump",
+      "trigger_intensity": 0.8,
+      "panic_duration": 5,
+      "start_period": 1,
+      "contagion_factor": 0.1
+    }
+  }
+} 

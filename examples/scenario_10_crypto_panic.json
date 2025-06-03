@@ -1,0 +1,65 @@
+{
+  "model": "crypto_panic",
+  "description": "Custom crypto panic scenario with DOGE instead of USDT - demonstrates meme coin volatility during market stress",
+  "parameters": {
+    "periods": 25,
+    
+    "// === INITIAL ASSET PRICES AND SUPPLIES ===": "",
+    "btc_initial_price": 110000.0,
+    "eth_initial_price": 2500.0,
+    "doge_initial_price": 0.20,
+    "btc_supply": 19500000,
+    "eth_supply": 120000000,
+    "doge_supply": 140000000000,
+    
+    "// === MARKET STRUCTURE ===": "",
+    "num_retail_investors": 1500000,
+    "num_whales": 150,
+    "num_exchanges": 25,
+    "num_influencers": 75,
+    
+    "// === RETAIL INVESTOR BEHAVIOR ===": "",
+    "retail_panic_threshold": 0.03,
+    "retail_sell_probability": 0.35,
+    "retail_herd_multiplier": 2.5,
+    "retail_doge_fomo": 0.9,
+    
+    "// === WHALE BEHAVIOR ===": "",
+    "whale_manipulation_factor": 0.9,
+    "whale_coordination_prob": 0.25,
+    "whale_average_holding": 1500.0,
+    "whale_doge_pump_power": 2.5,
+    
+    "// === EXCHANGE PARAMETERS ===": "",
+    "exchange_liquidity_ratio": 0.12,
+    "exchange_freeze_threshold": 0.35,
+    "exchange_recovery_rate": 0.08,
+    
+    "// === DOGE MEME COIN MECHANICS ===": "",
+    "doge_social_media_factor": 2.0,
+    "doge_celebrity_effect": 0.4,
+    "doge_volatility_multiplier": 4.0,
+    "doge_pump_probability": 0.15,
+    
+    "// === MARKET DYNAMICS ===": "",
+    "price_volatility_base": 0.025,
+    "liquidity_impact_factor": 0.6,
+    "recovery_half_life": 10,
+    "btc_to_eth_correlation": 0.75,
+    "btc_to_doge_correlation": 0.3,
+    "eth_to_doge_correlation": 0.25,
+    "crypto_to_traditional_spillover": 0.15,
+    
+    "// === SIMULATION CONTROL ===": "",
+    "random_seed": 123
+  },
+  "simulation": {
+    "panic": {
+      "trigger_type": "exchange_halt",
+      "trigger_intensity": 0.7,
+      "panic_duration": 8,
+      "start_period": 3,
+      "contagion_factor": 0.2
+    }
+  }
+} 

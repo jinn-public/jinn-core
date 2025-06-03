@@ -1,0 +1,50 @@
+{
+  "model": "crypto_panic",
+  "description": "Current prices with bear market sentiment - testing meme coin behavior when market psychology is weak",
+  "parameters": {
+    "periods": 30,
+    
+    "// Current market prices": "",
+    "btc_initial_price": 110000.0,
+    "eth_initial_price": 2500.0,
+    "doge_initial_price": 0.20,
+    "doge_supply": 140000000000,
+    
+    "// Weakened market structure (bear sentiment)": "",
+    "num_exchanges": 15,
+    "num_influencers": 30,
+    "exchange_liquidity_ratio": 0.10,
+    "exchange_freeze_threshold": 0.45,
+    
+    "// More nervous retail investors (bear psychology)": "",
+    "retail_panic_threshold": 0.02,
+    "retail_sell_probability": 0.45,
+    "retail_herd_multiplier": 3.0,
+    "retail_doge_fomo": 0.6,
+    
+    "// Weaker DOGE social dynamics (bear sentiment)": "",
+    "doge_social_media_factor": 1.2,
+    "doge_celebrity_effect": 0.2,
+    "doge_volatility_multiplier": 3.5,
+    "doge_pump_probability": 0.08,
+    
+    "// Whale behavior in bear sentiment": "",
+    "whale_doge_pump_power": 1.8,
+    
+    "// Higher base volatility (bear market fear)": "",
+    "price_volatility_base": 0.035,
+    "btc_to_doge_correlation": 0.5,
+    "eth_to_doge_correlation": 0.4,
+    
+    "random_seed": 456
+  },
+  "simulation": {
+    "panic": {
+      "trigger_type": "regulatory",
+      "trigger_intensity": 0.6,
+      "panic_duration": 6,
+      "start_period": 2,
+      "contagion_factor": 0.25
+    }
+  }
+} 

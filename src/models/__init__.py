@@ -31,6 +31,7 @@ from .geopolitical_land_analyst import (
     RegionType,
     ClimatePressure
 )
+from .crypto_panic import CryptoPanicModel, CryptoPanicShock, simulate_crypto_panic, run_crypto_panic_scenario
 
 __all__ = [
     'InterestRateModel', 
@@ -72,5 +73,9 @@ __all__ = [
     'GeopoliticalShock',
     'simulate_land_price_trends',
     'RegionType',
-    'ClimatePressure'
+    'ClimatePressure',
+    'CryptoPanicModel',
+    'CryptoPanicShock',
+    'simulate_crypto_panic',
+    'run_crypto_panic_scenario'
 ] 
