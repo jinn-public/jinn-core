@@ -1,0 +1,52 @@
+{
+  "model": "crypto_panic",
+  "description": "Current prices with extreme DOGE pump setup - testing what happens when meme coin mania reaches dangerous levels",
+  "parameters": {
+    "periods": 35,
+    
+    "// Current market prices": "",
+    "btc_initial_price": 110000.0,
+    "eth_initial_price": 2500.0,
+    "doge_initial_price": 0.20,
+    "doge_supply": 140000000000,
+    
+    "// Extreme social media influence (dangerous mania)": "",
+    "num_influencers": 150,
+    "doge_social_media_factor": 3.0,
+    "doge_celebrity_effect": 0.7,
+    "doge_volatility_multiplier": 6.0,
+    "doge_pump_probability": 0.3,
+    
+    "// Market sensitive to DOGE mania": "",
+    "retail_panic_threshold": 0.04,
+    "retail_sell_probability": 0.40,
+    "retail_doge_fomo": 1.5,
+    
+    "// Whale manipulation capabilities (pump and dump)": "",
+    "num_whales": 80,
+    "whale_doge_pump_power": 4.0,
+    "whale_coordination_prob": 0.4,
+    
+    "// Exchanges vulnerable to meme coin volatility": "",
+    "num_exchanges": 18,
+    "exchange_liquidity_ratio": 0.11,
+    "exchange_freeze_threshold": 0.38,
+    
+    "// High correlation effects during mania": "",
+    "btc_to_eth_correlation": 0.85,
+    "btc_to_doge_correlation": 0.6,
+    "eth_to_doge_correlation": 0.5,
+    "crypto_to_traditional_spillover": 0.20,
+    
+    "random_seed": 321
+  },
+  "simulation": {
+    "panic": {
+      "trigger_type": "doge_pump",
+      "trigger_intensity": 0.9,
+      "panic_duration": 12,
+      "start_period": 1,
+      "contagion_factor": 0.30
+    }
+  }
+} 
